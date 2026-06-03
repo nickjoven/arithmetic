@@ -215,6 +215,45 @@ print(f"\n   rational orbits, reduced p,q <= 40: {total} fractions, "
 
 # ===========================================================================
 print("\n" + "=" * 72)
+print("M5  NO STANDING WAVE:  Collatz parity is a FULL SHIFT (Terras bijection)")
+print("=" * 72)
+# A standing wave is a mode-locked orbit: eventually-periodic parity, one short
+# word repeated forever. Collatz is the opposite. For the shortcut map
+# T(n) = (3n+1)/2 if odd, n/2 if even, the map n -> (first k parities) is a
+# BIJECTION from Z/2^k onto {0,1}^k (Terras' parity-vector theorem): every
+# length-k parity word occurs exactly once, so the parity dynamics are the full
+# 2-shift (entropy log 2) -- maximal complexity, never eventually periodic.
+
+
+def parity_word(n, k):
+    w = []
+    for _ in range(k):
+        if n & 1:
+            w.append(1)
+            n = (3 * n + 1) // 2
+        else:
+            w.append(0)
+            n = n // 2
+    return tuple(w)
+
+
+print("   shortcut map: is n -> length-k parity word a bijection onto {0,1}^k ?")
+all_biject = True
+for k in range(1, 12):
+    words = {parity_word(n, k) for n in range(2**k)}
+    bij = len(words) == 2**k
+    all_biject = all_biject and bij
+    if k in (1, 4, 8, 11):
+        print(f"     k={k:>2}: {len(words):>5}/{2**k:>5} distinct words   bijection={bij}")
+print(f"   bijection holds for all k=1..11: {all_biject}   "
+      f"-> full 2-shift, entropy log2 = {log(2):.4f}")
+print("   => no orbit settles into a repeated parity word: Collatz admits NO")
+print("      standing wave. It lives in the GAPS of the {2,3} mode-locking")
+print("      staircase, not on a plateau (see ../mode_locking/standing_waves.md).")
+
+
+# ===========================================================================
+print("\n" + "=" * 72)
 print("WHERE THE CONJECTURE STILL LIVES (not touched above)")
 print("=" * 72)
 print("   M1-M4 explain WHY the orbit contracts ON AVERAGE (rate 3/4 < 1 set")

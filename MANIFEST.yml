@@ -27,7 +27,7 @@ imported_from_harmonics:
   forced_primes:
     value: "(q₂, q₃) = (2, 3)"
     cross_link: "q₂² − 1 = q₃ , q₃² − 1 = q₂³"
-    source: "harmonics:farey_partition.md"
+    source: "harmonics:mass_sector_closure.md"
   minimum_alphabet:
     value: "integers Z, mediant (a+c)/(b+d), fixed-point x=f(x), parabola x²+μ=0"
     source: "harmonics:minimum_alphabet.md"
@@ -35,20 +35,75 @@ imported_from_harmonics:
     value: "mediant = generator of the PSL(2,ℤ) Farey action on P¹(Q)"
     source: "harmonics:canonical_glossary.md §5"
 
+# Audits of framework-internal forcing claims this repo could lean on.
+# Performed against the harmonics substrate so studies don't import stale
+# or over-resolved claims. Each study states which findings it relies on.
+audit_findings:
+  cross_link_uniqueness:
+    claim: "{q₂²−1=q₃, q₃²−1=q₂³} has unique positive solution (2,3)"
+    verdict: "VERIFIED (real theorem; brute-forced). The 2nd equation pins it."
+    caveat: >
+      The identity's FORM encodes the observed gauge groups SU(2)×SU(3)
+      (dim adj SU(n) = n²−1), which are empirical input, not derived. So
+      '(2,3) forced' = 'unique solution of a constraint motivated by the
+      observed gauge groups'. The independent Klein-bottle 'smallest
+      coprime pair' route cleanly forces 2; 'q₃=3 specifically' is softer.
+    used_by: "none load-bearing; collatz/ invokes it only as a named coincidence"
+  gamma0_6_forcing:
+    claim: "framework forces level Γ₀(6) 'from physics', independent of target"
+    verdict: >
+      NOT substantiated as forced. Per psl2z_subgroup_phase_a_results.md,
+      Γ₀(6) is IDENTIFIED as the smallest Hecke subgroup that splits three
+      empirical w₊ candidates {13/14,12/13,14/15} AND whose level matches
+      INTERACT=q₂q₃=6. Substrate-preservation closes only in 'recognize
+      mode' (vocabulary translation of existing Z₂×Z₃ structure); Phase B
+      'unscoped', Phase C (representative selection) OPEN.
+    consequence: >
+      Any Ramanujan port must NOT claim 'framework forces Γ₀(6) from
+      physics'; downgrade to 'identifies a level that is a real
+      Ramanujan–Sato level'. Reason the Ramanujan thread is not yet ported.
+
 # The studies. Each is Class 2; each ships a pure-Python check that prints
-# every load-bearing number in its note.
+# every load-bearing number in its note. The two founding studies are one
+# picture: the locked {2,3} resonances (mode_locking) and the unlocked
+# complement between them (collatz).
 studies:
+  standing_waves:
+    object: "the bare ×3/÷2 ratio (circle of fifths) as a mode-locking staircase"
+    class: 2
+    register: "framework-native side — the {2,3} ARENA, demonstrated by running the dynamics"
+    reading: >
+      The framework's standing waves (mode-locked, periodic resonances) are
+      the {2,3}-dominated locks of the ×3/÷2 staircase. This is the half of
+      the {2,3}↔Collatz question that DOES hold: run the dynamics, get
+      Arnold tongues with {2,3} widest.
+    shown:
+      rotation: "stack ×3/2, fold ÷2 = rotation by ρ = log₂(3/2) = 0.5849625"
+      convergents: "CF convergents = equal temperaments 1/2,3/5,7/12,24/41,31/53; all on Stern–Brocot descent to ρ"
+      tongue_widths_K1: "by denominator: 1→0.159, 2(1/2)→0.074, 3(1/3,2/3)→0.031, 4→0.016 (small {2,3} widest)"
+      standing_waves: "q₂ lock = period-2 orbit; q₃ lock = period-3 orbit; staircase gap = aperiodic"
+    does_not_show:
+      - "reads harmonics' OWN derived staircase (minimum_alphabet.md) in the ×3/÷2 vocabulary; adds no new derivation/constant"
+      - "does NOT import the physical-forcing claim for (q₂,q₃)=(2,3); {2,3} enter as the bare ratio (see audit_findings)"
+    note: "mode_locking/standing_waves.md"
+    check: "mode_locking/standing_waves.py"
+    status: "complete"
+
   collatz_minimal_chaos:
     object: "Collatz map 3n+1 (and its rational extension on the Stern–Brocot tree)"
     class: 2
+    register: "the UNLOCKED complement of the standing_waves arena — admits no standing wave"
     reading: >
-      Collatz is the minimal discrete-chaos competition between the forced
-      primes: expansion ×q₃ on odd steps, contraction ÷q₂ on even steps.
+      Collatz lives in the GAPS of the {2,3} mode-locking staircase: the
+      +1 pushes orbits off the plateaus, the parity dynamics become a full
+      2-shift, and no orbit locks onto a standing wave. That is why it is
+      hard. The {2,3}↔Collatz shared place is the mode-locking arena
+      (standing_waves), NOT the q₃=q₂²−1 coincidence (named, not leaned on).
     mechanism:
-      contraction_boundary: "q·n+1 contracts iff q < q₂² = 4; only odd q in (1,4) is q=3"
-      collatz_position: "q₃ = q₂² − 1 → 3n+1 is the boundary case, one unit under the wall"
+      contraction_boundary: "q·n+1 contracts iff q < q₂² = 4; q=3 the unique odd multiplier that contracts"
       rate: "per-odd-cycle multiplier q₃/q₂² = 3/4 (E[v₂(3n+1)] = q₂ = 2)"
-      plus_one: "the '+1' is the mediant of 3p/q with the tree root 1/1; restores ÷q₂ on both coordinates"
+      plus_one: "the '+1' is the mediant of 3p/q with the tree root 1/1; restores ÷q₂; drives orbits OFF the plateaus"
+      no_standing_wave: "shortcut-map first-k parities = bijection onto {0,1}^k (Terras); full 2-shift, entropy log2"
       integers_are_boundary: "q=1 = rightmost Stern–Brocot branch = minimal gcd cancellation = hard case"
       unique_cycle: "only integer cycle is {1,2}; q₃^a = q₂^b has no positive solution"
     measured:
@@ -56,11 +111,13 @@ studies:
       per_odd_cycle_multiplier: 0.747   # predicted q₃/q₂² = 0.75
       int_3n1_reach_one: "1998 / 1998 over n=2..1999"
       int_5n1_diverge: "1742 / 1998 (boundary q=5 > 4 predicts non-convergence)"
+      parity_bijection: "verified k=1..11: first-k parities hit all 2^k words exactly once"
       rational_convergence: "979 reduced fractions p,q≤40 → {1/1,2/1}, max 74 steps"
     does_not_show:
       - "does NOT prove Collatz — every-orbit vs almost-every (Tao 2019) is the open conjecture"
-      - "does NOT derive q₂, q₃ — they are imported from harmonics"
-      - "rate 3/4 is the E[v₂]=2 heuristic, exact only in expectation; the BOUNDARY q<q₂² is the exact content"
+      - "does NOT derive q₂, q₃ — imported from harmonics"
+      - "q₃=q₂²−1 is a named {2,3}-arithmetic coincidence ('3 just under 4'), NOT the load-bearing link"
+      - "rate 3/4 is the E[v₂]=2 heuristic, exact only in expectation; the BOUNDARY q<q₂² and the bijection are exact"
     note: "collatz/minimal_chaos.md"
     check: "collatz/minimal_chaos.py"
     status: "complete"
@@ -71,7 +128,13 @@ planned:
   ramanujan_pi:
     object: "Ramanujan 1914 series for 1/π"
     reading: "home shared (level Γ₀(6)), address disjoint (no CM discriminant); structure-fixer, not moduli-fixer"
-    status: "exists in harmonics branch; not yet ported here"
+    blocked_on: >
+      audit_findings.gamma0_6_forcing — the harmonics-branch note claims
+      'framework independently forces Γ₀(6) from physics', which the
+      substrate does not support (Γ₀(6) is identified by w₊-candidate
+      splitting + INTERACT-match, recognize-mode). Port only after Layer B
+      is downgraded accordingly; do not import the forcing claim.
+    status: "exists in harmonics branch; NOT ported (blocked on downgrade)"
   farey_riemann:
     object: "Farey / Stern–Brocot tree under Ramanujan / Collatz / Riemann"
     reading: "RH leg anchored on Franel–Landau (1924): RH ⟺ Farey equidistribution"

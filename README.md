@@ -23,10 +23,20 @@ each note states this explicitly; if a note's body drifts from its header,
 the header wins.
 
 The interesting move is **learning from the pattern**, not pursuing an
-input that would dissolve the question. Collatz is the model: the framework
-explains *why* `3` and `2` produce contraction-to-an-attractor (and why
-`5n+1` does not), and then leaves the conjecture itself standing. That is
-the intended shape of every study here.
+input that would dissolve the question. The founding pair of studies is the
+model: the bare `×3/÷2` ratio is a genuine mode-locking staircase whose
+standing waves are the `{2,3}` locks (`mode_locking/`), and Collatz is what
+that same staircase looks like in its **unlocked complement** — the regime
+that admits no standing wave, which is *why* the conjecture is hard
+(`collatz/`). The framework supplies the arena and its resonances; the
+study locates the object inside it and leaves the open problem standing.
+
+A claim only earns its `{2,3}` framing if **running the dynamics** produces
+the framework's structure (Arnold tongues, mode-locking, the Stern–Brocot
+staircase) — not merely because the numbers `2` and `3` appear. Where a
+framework-internal forcing claim is invoked, it is audited against the
+harmonics substrate first, and any gap is named in the study (see, e.g.,
+the `Γ₀(6)` / `{2,3}`-forcing audit notes in `MANIFEST.yml`).
 
 ## Provenance — the substrate of record is harmonics
 
@@ -48,12 +58,16 @@ relationship.
 
 | Study | Object | Reading |
 |---|---|---|
-| [`collatz/minimal_chaos.md`](collatz/minimal_chaos.md) | Collatz `3n+1` | Minimal discrete chaos: contraction at rate `q₃/q₂² = 3/4`, boundary `q < q₂²`, the `+1` as the mediant with the tree root. Conjecture left open. |
+| [`mode_locking/standing_waves.md`](mode_locking/standing_waves.md) | the `×3/÷2` ratio | The framework's **standing waves**: rotation `log₂(3/2)` whose locks are Stern–Brocot mediants (the equal temperaments), a devil's staircase whose widest Arnold tongues are the `{2,3}` denominators (`q₂` period-2, `q₃` period-3). The arena. |
+| [`collatz/minimal_chaos.md`](collatz/minimal_chaos.md) | Collatz `3n+1` | The **unlocked complement**: contraction `q₃/q₂² = 3/4`, boundary `q < q₂²`, the `+1` as the mediant with the tree root, and the Terras full-shift (no standing wave) that places Collatz in the staircase's gaps. Conjecture left open. |
 
-Each study is a markdown note plus a pure-Python check (`no numpy`,
-self-contained, deterministic) that prints every number the note cites.
+These two are one picture: the locked `{2,3}` resonances, and the unlocked
+regime between them. Each study is a markdown note plus a pure-Python check
+(`no numpy`, self-contained, deterministic) that prints every number the
+note cites.
 
 ```
+python3 mode_locking/standing_waves.py
 python3 collatz/minimal_chaos.py
 ```
 

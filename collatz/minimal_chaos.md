@@ -3,19 +3,24 @@
 ## Status / classification (read first)
 
 **Class 2 — structural reading of a mechanism. NOT a proof of Collatz,
-NOT a new framework constant.** This note records *why* the Collatz
-operations produce contraction-to-an-attractor, stated in the framework's
-two forced primes `q₂ = 2`, `q₃ = 3`. The hard part of the conjecture
-(every orbit reaches 1, not merely almost every) is **untouched** and is
-located explicitly below. What is offered is a mechanism, not a theorem.
+NOT a new framework constant.** This note reads Collatz as the **unlocked
+complement** of the `{2,3}` mode-locking staircase. Its companion study
+`../mode_locking/standing_waves.md` shows the bare `×3/÷2` ratio is a
+genuine mode-locking system whose standing waves are the `{2,3}` locks;
+**this** note shows that adding the `+1` pushes Collatz off those plateaus
+into the gaps — *the Collatz conjecture's vocabulary admits no
+standing-wave dynamics.* What is offered is a mechanism (why it contracts,
+why no second cycle, why its parity is maximally complex), not a theorem.
 Companion check: `minimal_chaos.py` (pure-Python, self-contained, every
 number below is printed by it).
 
-The register here is deliberate. The interesting move is **learning from
-the pattern** — understanding why these particular ratios and operations
-give the behavior they do — rather than chasing an input that would
-"derive" Collatz and, in doing so, dissolve the question. The conjecture
-is left standing; the *engine* underneath it is what gets read.
+The register is deliberate. The interesting move is **learning from the
+pattern** — why these ratios and operations give this behavior — rather
+than chasing an input that would "derive" Collatz and dissolve the
+question. The conjecture is left standing; the *engine* underneath it is
+what gets read. Two readings make the map legible without resolving it:
+the contraction mechanism (below), and the rational extension on the
+Stern–Brocot tree.
 
 ---
 
@@ -29,8 +34,6 @@ The Collatz map on positive integers:
 Open since 1937; verified to 2^68 ≈ 2.95·10^20 (Barina 2021); no proof.
 The obstruction is that the parity sequence looks random, which blocks
 any monotone-descent argument.
-
-Two framework readings make the map legible without resolving it.
 
 **Rational extension.** Integers are the boundary of the rationals;
 extend `T` to all reduced `p/q ∈ Q⁺`:
@@ -65,16 +68,22 @@ is
 
     q / q₂²    →    contracts iff  q < q₂² = 4.
 
-The **only odd multiplier inside the window** `(1, 4)` is `q = 3`. And the
-framework's own cross-link identity between its two primes is
+The **only odd multiplier inside the window** `(1, 4)` is `q = 3`: Collatz
+is the unique odd `qn+1` map that contracts at all, sitting one unit under
+the wall `q₂² = 4`. That is the real, `3`-specific content of M1 — and it
+needs nothing from the framework beyond the bare ratio `q₃/q₂²`.
 
-    q₃ = q₂² − 1 = 3,
-
-so **Collatz sits exactly one unit under the contraction wall.** It is the
-boundary case of the smallest map that contracts at all. (`harmonics`
-forces `(q₂, q₃) = (2, 3)` via `q₂² − 1 = q₃`, `q₃² − 1 = q₂³` — see
-`harmonics:farey_partition.md`; here we only borrow the arithmetic of the
-identity, not its physical forcing.)
+> **A coincidence, named as one.** The framework also carries the identity
+> `q₃ = q₂² − 1` (and `q₃² − 1 = q₂³`), whose unique positive solution is
+> `(2,3)` (`harmonics:mass_sector_closure.md`). It is tempting to read "the
+> contraction wall is at `q₂²` and `q₃ = q₂² − 1`" as the framework
+> *explaining* Collatz's position. Stripped down, that is just *"3 is the
+> odd number immediately below 4 = 2²"* — a small-`{2,3}` arithmetic
+> coincidence, not a derivation. The genuine `{2,3}`↔Collatz link is **not**
+> here; it is the shared **mode-locking arena** of
+> `../mode_locking/standing_waves.md`. This note does not lean on the
+> cross-link identity, and (per the audit in that study) does not import its
+> physical-forcing claim.
 
 ### M2 — the rate, measured
 
@@ -127,16 +136,19 @@ tree, where the mediant hands back the least.
 ## What this does and does not show
 
 **Does (supportable, checked):**
-- Collatz's contraction-on-average is a consequence of `q₃ < q₂²`, with
-  rate `q₃/q₂² = 3/4` measured to match. The two forced primes and their
-  cross-link `q₃ = q₂² − 1` place `3n+1` at the contraction boundary, and
-  the boundary correctly separates the convergent `3n+1` from the
-  divergent `5n+1, 7n+1`.
+- Collatz's contraction-on-average is a consequence of the bare ratio
+  `q₃/q₂² = 3/4 < 1`, measured to match (`0.747`). The boundary `q < q₂²`
+  correctly separates the convergent `3n+1` from the divergent `5n+1,
+  7n+1` — `q = 3` is the unique odd multiplier that contracts.
 - The `+1` is the mediant primitive at the Stern–Brocot root; the
   integers are the `q = 1` boundary (the hard case) of a rational map that
   is gentler in its interior.
 - The only integer cycle is `{1, 2}`, because `q₃^a = q₂^b` has no
   positive solution (fundamental theorem of arithmetic).
+- Collatz admits **no standing wave**: for the shortcut map, the first-`k`
+  parities are a bijection onto `{0,1}^k` (Terras), a full 2-shift of
+  entropy `log 2`. No orbit settles into a repeated parity word, so Collatz
+  sits in the *gaps* of the `{2,3}` staircase, never on a plateau.
 
 **Does NOT (guard rails):**
 - It does **not** prove Collatz. M1–M4 explain why almost every orbit
@@ -159,34 +171,45 @@ the shape.*
 
 ## The pattern, stated plainly
 
-Collatz is the **minimal discrete-chaos map**: the smallest competition
-between the two forced primes that lands just inside contraction. Read
-through the alphabet —
+Collatz is **minimal discrete chaos in the gaps of the `{2,3}`
+staircase**. The companion study (`../mode_locking/standing_waves.md`)
+establishes the arena: the bare `×3/÷2` ratio is a mode-locking system
+whose standing waves — the locked, periodic resonances — are the `{2,3}`
+denominators (`q₂` period-2, `q₃` period-3, widest tongues). Collatz adds
+the `+1`, and that is the whole story:
 
-- the **arena** is the Stern–Brocot tree (integers = `q₂`-rich boundary);
-- the **expansion** is `×q₃`, the **contraction** is `÷q₂`;
-- the **restoring move** is the mediant with the root (`+1`);
-- the **net drift** is `q₃/q₂² < 1`, guaranteed by `q₃ = q₂² − 1`;
+- the **arena** is the Stern–Brocot tree / circle-map staircase (integers
+  = `q₂`-rich boundary), shared with the standing-wave study;
+- the **expansion** is `×q₃`, the **contraction** is `÷q₂`, net drift
+  `q₃/q₂² = 3/4 < 1` — measured, and `3`-specific;
+- the **`+1` is the mediant with the root**, and it is exactly what drives
+  orbits *off* the plateaus: the parity dynamics become a full 2-shift (no
+  eventual periodicity, no standing wave);
 - the **residue** — whether *every* orbit, not just almost every, obeys
-  the drift — is the conjecture, and it is left open.
+  the drift — is the conjecture, left open.
 
-This is the "learning from the pattern" register: the contraction, the
-unique cycle, the boundary against `5n+1` are all consequences of `{2,3}`
-and the mediant, and they are the genuinely structural part. What the
-framework cannot hand over is the pointwise upgrade — and that limit is
-honest, not hidden.
+So the `{2,3}` of Collatz and the `{2,3}` of the framework do share a place
+— the mode-locking staircase — but Collatz lives in its **unlocked
+complement**, the regime that admits no standing wave. That placement is
+the honest payoff: it says *why* Collatz is hard (its symbolic dynamics are
+maximally complex, so there is no resonance to lock onto and exploit),
+without pretending the framework resolves it. The contraction, the unique
+cycle, the full-shift parity are the genuinely structural part; the
+pointwise upgrade is what the framework cannot hand over, and that limit is
+named, not hidden.
 
 ---
 
 ## Open / could-sharpen
 
-1. **Parity equidistribution as a tongue statement.** The mechanism
+1. **The open step as a no-standing-wave statement.** The mechanism
    reduces Collatz to "no orbit sustains an odd-step frequency above the
-   contraction threshold indefinitely." In the circle-map picture
-   (`harmonics:minimum_alphabet.md` §staircase) parity frequency is a
-   winding number; can the open step be phrased as a mode-locking
-   exclusion on the staircase? That would be a framework-native
-   restatement, not a proof.
+   contraction threshold indefinitely." Given M5 (the parity dynamics are a
+   full 2-shift), this is precisely the statement that no orbit locks onto a
+   standing wave of the `{2,3}` staircase that would defeat the drift. Can
+   the conjecture be phrased exactly as a mode-locking *exclusion* on the
+   staircase of `../mode_locking/standing_waves.md`? That would be a
+   framework-native restatement, not a proof.
 2. **Why `E[v₂] = q₂` exactly.** The rate `3/4` depends on the valuation
    mean being `q₂ = 2`. Is that itself an alphabet fact (the `2`-adic
    measure of `3n+1` over odd `n`), or incidental? The check measures it;
@@ -203,7 +226,8 @@ honest, not hidden.
 `minimal_chaos.py` — pure Python, no numpy, deterministic (seeded). Prints
 M1 (boundary), M2 (`E[v₂]`, measured rate, `3n+1` vs `5n+1` dynamics), M3
 (mediant identity + both-even), M4 (cancellation asymmetry, rational
-convergence), and the unique-cycle / where-the-conjecture-lives summary.
+convergence), M5 (the Terras parity bijection — full 2-shift / no standing
+wave), and the unique-cycle / where-the-conjecture-lives summary.
 
 ## References
 
@@ -212,10 +236,16 @@ convergence), and the unique-cycle / where-the-conjecture-lives summary.
 - T. Tao, *Almost all orbits of the Collatz map attain almost bounded
   values*, arXiv:1909.03562 (2019) — "almost all" in logarithmic density;
   the gap to "all" is the conjecture.
-- Internal (this repo): `minimal_chaos.py`.
+- R. Terras, *A stopping time problem on the positive integers*, Acta
+  Arith. **30** (1976) — the parity-vector / coefficient-stopping-time
+  structure underlying M5's bijection.
+- Internal (this repo): `minimal_chaos.py`; companion study
+  `../mode_locking/standing_waves.md` (the locked `{2,3}` arena whose
+  unlocked complement this note reads).
 - Cross-repo substrate (`nickjoven/harmonics`): `minimum_alphabet.md`
   (the four primitives; staircase / parity as winding number),
-  `farey_partition.md` (`(q₂,q₃) = (2,3)` and the cross-link identity
-  `q₃ = q₂² − 1`), `canonical_glossary.md` §5 (mediant = PSL(2,ℤ) Farey
-  generator). These are referenced, not reproduced; the substrate of
-  record for the framework claims is harmonics (see `../README.md`).
+  `mass_sector_closure.md` (the cross-link identity `q₃ = q₂² − 1`,
+  `q₃² − 1 = q₂³`, unique solution `(2,3)` — invoked here only as a named
+  coincidence, not a bridge), `canonical_glossary.md` §5 (mediant = PSL(2,ℤ)
+  Farey generator). Referenced, not reproduced; the substrate of record for
+  framework claims is harmonics (see `../README.md`).
