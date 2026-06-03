@@ -23,13 +23,16 @@ each note states this explicitly; if a note's body drifts from its header,
 the header wins.
 
 The interesting move is **learning from the pattern**, not pursuing an
-input that would dissolve the question. The founding pair of studies is the
-model: the bare `×3/÷2` ratio is a genuine mode-locking staircase whose
-standing waves are the `{2,3}` locks (`mode_locking/`), and Collatz is what
-that same staircase looks like in its **unlocked complement** — the regime
-that admits no standing wave, which is *why* the conjecture is hard
-(`collatz/`). The framework supplies the arena and its resonances; the
-study locates the object inside it and leaves the open problem standing.
+input that would dissolve the question. The studies share one axis —
+**locked vs unlocked**: the bare `×3/÷2` ratio is a genuine mode-locking
+staircase whose standing waves are the `{2,3}` locks (`mode_locking/`);
+Collatz is what that same staircase looks like in its **unlocked
+complement** — the regime that admits no standing wave, which is *why* the
+conjecture is hard (`collatz/`); and the Riemann Hypothesis is the unlocked
+*asymptotic* face of the same tree — maximal equidistribution, via
+Franel–Landau (`farey/`). The framework supplies the locked arena and its
+resonances; each study locates an object inside it and leaves the open
+problem standing.
 
 A claim only earns its `{2,3}` framing if **running the dynamics** produces
 the framework's structure (Arnold tongues, mode-locking, the Stern–Brocot
@@ -58,17 +61,20 @@ relationship.
 
 | Study | Object | Reading |
 |---|---|---|
-| [`mode_locking/standing_waves.md`](mode_locking/standing_waves.md) | the `×3/÷2` ratio | The framework's **standing waves**: rotation `log₂(3/2)` whose locks are Stern–Brocot mediants (the equal temperaments), a devil's staircase whose widest Arnold tongues are the `{2,3}` denominators (`q₂` period-2, `q₃` period-3). The arena. |
-| [`collatz/minimal_chaos.md`](collatz/minimal_chaos.md) | Collatz `3n+1` | The **unlocked complement**: contraction `q₃/q₂² = 3/4`, boundary `q < q₂²`, the `+1` as the mediant with the tree root, and the Terras full-shift (no standing wave) that places Collatz in the staircase's gaps. Conjecture left open. |
+| [`mode_locking/standing_waves.md`](mode_locking/standing_waves.md) | the `×3/÷2` ratio | **Locked.** The framework's **standing waves**: rotation `log₂(3/2)` whose locks are Stern–Brocot mediants (the equal temperaments), a devil's staircase whose widest Arnold tongues are the `{2,3}` denominators (`q₂` period-2, `q₃` period-3). The arena. |
+| [`collatz/minimal_chaos.md`](collatz/minimal_chaos.md) | Collatz `3n+1` | **Unlocked (dynamical).** Contraction `q₃/q₂² = 3/4`, boundary `q < q₂²`, the `+1` as the mediant with the tree root, and the Terras full-shift (no standing wave) that places Collatz in the staircase's gaps. Conjecture left open. |
+| [`farey/equidistribution.md`](farey/equidistribution.md) | the Farey tree / Riemann | **Unlocked (asymptotic).** The tree's two faces: finite-depth *counting* (`13/19`, locked) vs asymptotic *equidistribution* (RH via Franel–Landau, unlocked). The framework reads the count, not the limit. Capstone. |
 
-These two are one picture: the locked `{2,3}` resonances, and the unlocked
-regime between them. Each study is a markdown note plus a pure-Python check
-(`no numpy`, self-contained, deterministic) that prints every number the
-note cites.
+These are one picture along a single axis — **locked** (the `{2,3}`
+resonances) vs **unlocked** (the gaps / the completion). Collatz and Riemann
+are the two unlocked problems; the framework owns the locked census. Each
+study is a markdown note plus a pure-Python check (`no numpy`,
+self-contained, deterministic) that prints every number the note cites.
 
 ```
 python3 mode_locking/standing_waves.py
 python3 collatz/minimal_chaos.py
+python3 farey/equidistribution.py
 ```
 
 ## Discipline

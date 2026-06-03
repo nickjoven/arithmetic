@@ -122,6 +122,28 @@ studies:
     check: "collatz/minimal_chaos.py"
     status: "complete"
 
+  farey_equidistribution:
+    object: "the Farey/Stern–Brocot tree; the Riemann Hypothesis via Franel–Landau"
+    class: 2
+    register: "capstone — positions all three objects on the locked↔unlocked axis"
+    reading: >
+      The Farey tree has two faces: finite-depth COUNTING (locked; the
+      framework's |F₆|=13, Ω_Λ=13/19 live here) and asymptotic
+      EQUIDISTRIBUTION (unlocked; RH lives here via Franel–Landau). The
+      framework reads the locked count, not the unlocked limit. RH keeps
+      company with Collatz on the unlocked side.
+    shown:
+      franel_landau: "RH ⇔ Σ|δ_ν| = O(n^{1/2+ε}) [Landau] and Σδ_ν² = O(n^{-1+ε}) [Franel]"
+      locked_is_finite_depth: "Ω_Λ=13/19 is a depth-6 census; |F_n|/|F_(n+1)| → 1, so it is depth-specific not asymptotic"
+      sums_consistent_with_RH: "S1/√n bounded (~0.18–0.27), S2·n bounded (~0.19–0.62) over n=8..512"
+    does_not_show:
+      - "does NOT test/support/weigh on RH — finite n is consistent with RH AND its negation; never a test"
+      - "does NOT claim the framework derives or bears on RH; shared TREE, not a shared theorem"
+      - "13/19 imported from harmonics; its physical status is audited there, not asserted here"
+    note: "farey/equidistribution.md"
+    check: "farey/equidistribution.py"
+    status: "complete"
+
 # Staged but not yet authored in this repo (see harmonics#210). Each would
 # enter as Class 2 and must carry its own guard rails.
 planned:
