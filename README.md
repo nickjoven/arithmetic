@@ -64,7 +64,8 @@ relationship.
 | [`mode_locking/standing_waves.md`](mode_locking/standing_waves.md) | the `×3/÷2` ratio | **Locked.** The framework's **standing waves**: rotation `log₂(3/2)` whose locks are Stern–Brocot mediants (the equal temperaments), a devil's staircase whose widest Arnold tongues are the `{2,3}` denominators (`q₂` period-2, `q₃` period-3). The arena. |
 | [`collatz/minimal_chaos.md`](collatz/minimal_chaos.md) | Collatz `3n+1` | **Unlocked (dynamical).** Contraction `q₃/q₂² = 3/4`, boundary `q < q₂²`, the `+1` as the mediant with the tree root, and the Terras full-shift (no standing wave) that places Collatz in the staircase's gaps. Conjecture left open. |
 | [`farey/equidistribution.md`](farey/equidistribution.md) | the Farey tree / Riemann | **Unlocked (asymptotic).** The tree's two faces: finite-depth *counting* (`13/19`, locked) vs asymptotic *equidistribution* (RH via Franel–Landau, unlocked). The framework reads the count, not the limit. |
-| [`completion/sb_boundary.md`](completion/sb_boundary.md) | the completion of ℚ | **The closure where both faces meet.** The SB-tree boundary *is* the completion (continued fractions as paths); resolves a framework Open item and pins its `1/q²` floor, `0.999…=1`, and `1/φ`-depth claims to exact facts. |
+| [`completion/sb_boundary.md`](completion/sb_boundary.md) | the completion of ℚ (ℝ) | **The closure where both faces meet.** The SB-tree boundary *is* the Archimedean completion (continued fractions as paths); resolves a framework Open item and pins its `1/q²` floor, `0.999…=1`, and `1/φ`-depth claims to exact facts. |
+| [`completion/two_completions.md`](completion/two_completions.md) | the 2-adic completion (ℤ₂) | **The other completion.** Collatz's lossy mod-2 is lossless in aggregate (a 2-adic coordinate); its natural home is `ℤ₂`, where the loss is a measure-preserving isometry. The conjecture is the seam *between* ℝ and `ℤ₂` — inside vs outside, made exact. |
 | [`root/golden_root.md`](root/golden_root.md) | the framework, from one root | **The singular representation.** One tree, one seed, one operation — and one matrix `[[1,1],[1,0]]` carrying all four primitives, whose eigenvalue `φ` is its own tree's deepest point. Generation and completion in one self-referential object. |
 
 These are one picture along a single axis — **locked** (the `{2,3}`
@@ -80,6 +81,7 @@ python3 mode_locking/standing_waves.py
 python3 collatz/minimal_chaos.py
 python3 farey/equidistribution.py
 python3 completion/sb_boundary.py
+python3 completion/two_completions.py
 python3 root/golden_root.py
 ```
 

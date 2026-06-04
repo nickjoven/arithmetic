@@ -171,6 +171,32 @@ studies:
     check: "completion/sb_boundary.py"
     status: "complete"
 
+  two_completions:
+    object: "Collatz's lossy mod-2 operator; the 2-adic completion Z_2 of Z"
+    class: 2
+    register: "the OTHER completion — sibling of sb_boundary (R); where the loss vanishes"
+    reading: >
+      The mod-2 read is lossy on Z (projection Z->Z/2) but lossless in
+      aggregate: the parity stream is a 2-adic coordinate. By Ostrowski the
+      only completions of Q are R and the p-adics; Collatz's q₂=2 reduction
+      lives in Z_2, where the parity-vector map is a measure-preserving
+      isometry (Lagarias) and the loss vanishes. The conjecture is the seam
+      between the two completions (inside Z vs outside Z_2; every vs a.e.).
+    shown:
+      lossless_aggregate: "parity vector bijection on Z/2^k (k<=12) WITH exact inverse -> the 2-adic coordinate"
+      loss_direction: "bit-length drift: even Δlog2=-1, odd Δlog2=log2(3/2); net negative = the 3/4 contraction in bits"
+      ostrowski: "completions of Q = R (Archimedean, sb_boundary) and Q_p (p-adic); Collatz's home is Z_2 (p=q₂=2)"
+      isometry: "Lagarias: parity-vector map Q_∞:Z_2->Z_2 is a measure-preserving homeomorphism; loss vanishes on Z_2"
+      seam: "conjecture = gap between clean Z_2/outside (a.e., Tao) and Z/inside (every integer)"
+    does_not_show:
+      - "does NOT prove Collatz — Z_2 is clean BECAUSE it is an a.e./measure statement; the gap to every integer is the conjecture"
+      - "the 2-adic conjugacy is classical (Terras 1976, Lagarias 1985); the Class 2 content is the identification, not a theorem"
+      - "no constant; q₂,q₃ imported from harmonics"
+    closes_loop_with: "completion/sb_boundary.md (R) — completion/ now holds BOTH completions of Q"
+    note: "completion/two_completions.md"
+    check: "completion/two_completions.py"
+    status: "complete"
+
   golden_root:
     object: "the framework from one root — the most singular representation"
     class: 2
