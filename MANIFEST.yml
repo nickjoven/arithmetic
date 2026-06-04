@@ -152,6 +152,33 @@ studies:
     check: "collatz/no_dissipation.py"
     status: "complete"
 
+  adelic_height:
+    object: "Collatz — is there a provably monotone adelic height h(n)?"
+    class: 2
+    register: "the frontier no_dissipation pointed to — answered honestly (negative/structural)"
+    reading: >
+      A monotone height exists IFF Collatz is true (the stopping time sigma,
+      circular). A non-circular closed-form one is squeezed between the two
+      completions: finite 2-adic data is blind to unbounded ascending runs, the
+      full 2-adic coordinate is conserved (can't descend). Any working h must be
+      Archimedean-non-monotone AND 2-adically discontinuous — definable on
+      neither completion, living only on the measure-zero integers.
+    shown:
+      circular_existence: "sigma(T(n))=sigma(n)-1 (verified n=2..1999): a perfect but non-constructive Lyapunov"
+      ascending_runs: "n=2^k-1 gives k consecutive odd steps; v2=0 throughout while log2|n| climbs -> finite 2-adic data blind"
+      conserved_coordinate: "the full parity vector is measure-preserving; continuous h:Z_2->R strictly decreasing is impossible (recurrence)"
+      naive_fails: "h=log2(n)-a*v2(n) increases for EVERY a (even steps need a<1; odd ascending steps rise log2(3/2) for all a)"
+      v3_also_blind: "[3b] v3(n)=0 along the climb too; best (a,b) keeps b=0 -> ALL local p-adic valuations are blind (climb = trajectory quantity)"
+      window_squeeze: "finite window fails runs longer than it; unbounded window = stopping time = circular"
+    does_not_show:
+      - "does NOT prove Collatz unprovable or that no closed-form h exists — only that the natural adelic constructions fail, and characterizes what any working one must be"
+      - "the 'neither completion / Z-only' characterization IS the analytic shape of the conjecture; that is the honest endpoint"
+      - "stopping-time and recurrence facts are classical; the squeeze and verdict are the Class 2 content"
+    answers_user_question: "yes iff Collatz true (circular); no constructive one known; squeeze is precise; all LOCAL arithmetic (any v_p) is blind"
+    note: "collatz/adelic_height.md"
+    check: "collatz/adelic_height.py"
+    status: "complete"
+
   farey_equidistribution:
     object: "the Farey/Stern–Brocot tree; the Riemann Hypothesis via Franel–Landau"
     class: 2
