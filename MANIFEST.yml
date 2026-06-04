@@ -171,6 +171,33 @@ studies:
     check: "completion/sb_boundary.py"
     status: "complete"
 
+  golden_root:
+    object: "the framework from one root — the most singular representation"
+    class: 2
+    register: "synthesis — the single object from which all four studies unfold"
+    reading: >
+      All four studies are four readings of ONE tree (one seed (0/1,1/0), one
+      operation: the mediant): count the nodes (farey), node widths
+      (mode_locking), a map on nodes (collatz), the boundary (completion). And
+      a SINGLE object — the golden matrix M=[[1,1],[1,0]] — carries all four
+      primitives at once; its eigenvalue φ is the deepest point of the tree it
+      generates. Generation and completion are one self-referential object.
+    shown:
+      one_tree: "seed (0/1,1/0), mediant -> root 1/1 -> all of Q (nodes) and R (boundary)"
+      integers: "M^n entries are Fibonacci numbers"
+      parabola: "char poly of M is x²−x−1; roots φ, ψ"
+      fixed_point: "M^n v → φ-direction; φ = 1 + 1/φ"
+      mediant: "M's iteration is the φ-path; convergents = Fibonacci ratios = M^n columns"
+      cassini: "det(M^n)=(−1)^n = F_(n+1)F_(n−1)−F_n²; |φψ|=|det M|=1 (Born/uncertainty)"
+      singularity: "M generates the tree AND its eigenvalue φ is the boundary's deepest point (completion C4)"
+    does_not_show:
+      - "does NOT reduce 4 primitives to 1 — irreducibility (minimum_alphabet.md Part II) stands; this is co-location, not a smaller alphabet"
+      - "synthesis of existing framework content (x²−x−1/φ,ψ/Cassini cluster), not a new derivation"
+      - "no constant, no scorecard claim; physical readings (Born, uncertainty) imported, status audited in harmonics"
+    note: "root/golden_root.md"
+    check: "root/golden_root.py"
+    status: "complete"
+
 # Staged but not yet authored in this repo (see harmonics#210). Each would
 # enter as Class 2 and must carry its own guard rails.
 planned:
