@@ -154,7 +154,11 @@ forced). It returns only after that layer is downgraded.
    sharp property *of that completion*. If the completion were formalized
    framework-side, RH would be the natural test question for it — not to
    prove, but to state in framework-native terms. This is the one place the
-   two faces could be made to touch.
+   two faces could be made to touch. **Addressed** in
+   `../completion/sb_boundary.md`: the completion is the SB-tree boundary
+   (continued fractions as paths), and it unifies the locked nodes with the
+   unlocked paths — the mathematical half of the bridge. The physical-
+   observable half stays open.
 2. **Locked-measure at criticality.** The `mode_locking` study's `K = 1`
    staircase has its locked plateaus covering measure 1 with a measure-zero
    gap set; the Farey tongue-width sum (a `Σ 1/q²`-type quantity) is the

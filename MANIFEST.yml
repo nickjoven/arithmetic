@@ -144,6 +144,33 @@ studies:
     check: "farey/equidistribution.py"
     status: "complete"
 
+  completion_sb_boundary:
+    object: "the completion of Q as a limiting process on the Stern–Brocot tree"
+    class: 2
+    register: "the closure ∂T where the locked (nodes) and unlocked (paths) faces meet"
+    reading: >
+      The framework's Open item (minimum_alphabet.md Part III: 'formalize the
+      completion as a limiting process on the SB tree') has a classical exact
+      answer: the SB-tree boundary IS the completion R≥0, continued fractions
+      are the path encoding. Four informal framework claims land on standard
+      facts. The framework adopts a known construction; it does not derive it.
+    shown:
+      resolution_floor: "tree-adjacent a/b,c/d unimodular (|bc−ad|=1) -> width 1/(bd) = the framework's 1/q² floor"
+      completion_is_limit: "L/R path run-lengths = CF coefficients; bracket endpoints = convergents; width 1/(q_n q_{n+1}) -> 0"
+      two_tails: "rationals have exactly 2 finite paths ([..,k]=[..,k-1,1]) = the tree's 0.999...=1; irrationals 1 infinite path"
+      phi_deepest: "φ's convergent denominators are Fibonacci (minimal growth); floor shrinks slowest -> φ worst-approximable = deepest point"
+      faces_meet: "ρ=log2(3/2) is an infinite path bracketed by nodes 7/12,24/41; ∂T = finite nodes (locked) ∪ infinite paths (unlocked)"
+    closes:
+      - "minimum_alphabet.md Part III 'completion as limiting process on SB tree' (mathematical half)"
+      - "farey/equidistribution.md Open #1 (the completion as the bridge between the two faces)"
+    does_not_show:
+      - "construction is CLASSICAL (continued fractions / SB tree / Minkowski ?); the Class 2 content is the IDENTIFICATION, not a derivation"
+      - "the PHYSICAL-observable half of the Open item (what measurement cuts resolved-vs-gap) stays open — that is physics, not the tree"
+      - "no constant, no scorecard claim; 1/φ, 13/19 imported, status audited in harmonics"
+    note: "completion/sb_boundary.md"
+    check: "completion/sb_boundary.py"
+    status: "complete"
+
 # Staged but not yet authored in this repo (see harmonics#210). Each would
 # enter as Class 2 and must carry its own guard rails.
 planned:
