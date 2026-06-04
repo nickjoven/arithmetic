@@ -122,6 +122,36 @@ studies:
     check: "collatz/minimal_chaos.py"
     status: "complete"
 
+  no_dissipation:
+    object: "Collatz provability — the dissipation obstruction; embeddings in C, H"
+    class: 2
+    register: "negative result — which proof strategies are ruled out, and why"
+    reading: >
+      Collatz has no FORCED dissipation (Lyapunov function), so counting /
+      measure / geometric arguments cannot prove it. R gives only statistical,
+      non-monotone drift; Z_2 (the natural completion) is measure-preserving so
+      a.e. orbit recurs and Z is measure-zero (convergence invisible to Haar);
+      C/H are the wrong (Archimedean) completion — q2=2 ramifies. A forcing
+      quantity, if any, must be arithmetic/adelic, not geometric.
+    shown:
+      no_R_lyapunov: "altitude non-monotone (27→4616 ×171, 77031→1.1e7 ×142); 3/4 drift is statistical not forced"
+      Z2_measure_preserving: "parity bijection on Z/2^k -> T measure-preserving (Lagarias); Poincare recurrence -> a.e. orbit recurs"
+      Z_measure_zero: "integers dense (every residue mod 2^k) but countable -> measure zero; convergence is a measure-zero event"
+      C_no_conservation: "entire extension agrees on Z but diverges off-axis (2,78,2.7e63,overflow); transcendental, no conserved current"
+      ramification: "q2=2 ramifies: -i(1+i)^2 = 2 in Z[i]; the non-Archimedean fact C/H cannot see"
+      signals: "cycle RULED OUT (3^a≠2^b); divergence OPEN and measure-zero -> must be attacked arithmetically"
+    answers_user_question:
+      higher_dim_topological_conservation: "NO — geometric/topological invariants are the wrong type/completion; the conserved Haar measure is preserved-not-monotone and blind to Z"
+      complex_quaternion_preserve_symmetry: "NO — C/H thicken the Archimedean side (statistical dissipation) and drop the 2-adic side (the real structure)"
+      conserve_vs_discard: "the 2-adic coordinate is conserved but is an ISOMETRY (wrong type); a monotone height must be adelic (R x Q_2)"
+    does_not_show:
+      - "does NOT prove or disprove Collatz — it rules out classes of proof STRATEGY, with reasons"
+      - "does NOT prove no conservation law of any kind exists — only the geometric/measure ones are wrong-type; adelic/arithmetic left open"
+      - "2-adic conjugacy (Lagarias) and C extension (Letherman-Schleicher-Wood) are classical; the synthesis is the Class 2 content"
+    note: "collatz/no_dissipation.md"
+    check: "collatz/no_dissipation.py"
+    status: "complete"
+
   farey_equidistribution:
     object: "the Farey/Stern–Brocot tree; the Riemann Hypothesis via Franel–Landau"
     class: 2
