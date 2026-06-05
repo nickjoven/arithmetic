@@ -281,6 +281,21 @@ studies:
     check: "root/golden_root.py"
     status: "complete"
 
+# Synthesis documents — roadmaps over the studies, making NO new claims; each
+# leaf cites a study+check or a standard fact. Not studies (no own check).
+synthesis:
+  collatz_boundaries:
+    doc: "collatz/boundaries.md"
+    role: "outline arriving at the boundaries of the Collatz conjecture from the repo findings"
+    arc: >
+      cycle case CLOSED by uniqueness (3^a≠2^b); divergence BLOCKED for
+      measure/ergodic (measure-zero), geometry/topology (wrong completion),
+      closed-form/local height (the squeeze), and VACUOUS for self-consistency
+      (product formula is an identity); divergence in toto OPEN — an arithmetic
+      statement about a measure-zero set.
+    sources: ["minimal_chaos", "two_completions", "no_dissipation", "adelic_height"]
+    status: "synthesis (no new claims)"
+
 # Staged but not yet authored in this repo (see harmonics#210). Each would
 # enter as Class 2 and must carry its own guard rails.
 planned:

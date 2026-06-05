@@ -89,6 +89,15 @@ python3 completion/two_completions.py
 python3 root/golden_root.py
 ```
 
+## Synthesis
+
+[`collatz/boundaries.md`](collatz/boundaries.md) — a roadmap that walks the
+Collatz studies into a single map of the conjecture's **boundaries**: the cycle
+case closed by arithmetic uniqueness; divergence walled off from measure,
+geometry, and closed-form heights; and what remains, open, as an arithmetic
+statement about a measure-zero set. Makes no new claims — every step cites a
+study + check.
+
 ## Discipline
 
 The working discipline imported from harmonics — knowledge as a cache of
