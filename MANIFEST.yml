@@ -1,0 +1,315 @@
+# Canonical index for the `arithmetic` repo.
+#
+# Scope: CLASS 2 STRUCTURAL READINGS ONLY. This repo makes no quantitative
+# predictions, derives no constants, and adds no scorecard rows. It is a
+# federated sibling of nickjoven/harmonics; the substrate of record for all
+# framework concepts is harmonics, not this file. See README.md and CLAUDE.md.
+#
+# Updated: 2026-06-03
+
+repo:
+  name: arithmetic
+  role: "Class 2 structural readings (vocabulary studies) of external objects"
+  federation:
+    sibling_of: "nickjoven/harmonics"
+    substrate_of_record: "harmonics (.ket content-addressed store)"
+    staged_in: "harmonics#210"
+  invariant: >
+    Everything here is Class 2 — a noted structural correspondence with no
+    claim of derivation, no prediction, and no new framework constant. A
+    reading that claims the framework derives its object is a bug, not a
+    result. Per-class definitions: harmonics:numerology_inventory.md.
+
+# Concepts borrowed from harmonics (referenced, NOT re-derived here).
+# Listed so a reader knows exactly what this repo takes on faith from the
+# substrate. None of these is established BY this repo.
+imported_from_harmonics:
+  forced_primes:
+    value: "(q₂, q₃) = (2, 3)"
+    cross_link: "q₂² − 1 = q₃ , q₃² − 1 = q₂³"
+    source: "harmonics:mass_sector_closure.md"
+  minimum_alphabet:
+    value: "integers Z, mediant (a+c)/(b+d), fixed-point x=f(x), parabola x²+μ=0"
+    source: "harmonics:minimum_alphabet.md"
+  mediant_is_psl2z:
+    value: "mediant = generator of the PSL(2,ℤ) Farey action on P¹(Q)"
+    source: "harmonics:canonical_glossary.md §5"
+
+# Audits of framework-internal forcing claims this repo could lean on.
+# Performed against the harmonics substrate so studies don't import stale
+# or over-resolved claims. Each study states which findings it relies on.
+audit_findings:
+  cross_link_uniqueness:
+    claim: "{q₂²−1=q₃, q₃²−1=q₂³} has unique positive solution (2,3)"
+    verdict: "VERIFIED (real theorem; brute-forced). The 2nd equation pins it."
+    caveat: >
+      The identity's FORM encodes the observed gauge groups SU(2)×SU(3)
+      (dim adj SU(n) = n²−1), which are empirical input, not derived. So
+      '(2,3) forced' = 'unique solution of a constraint motivated by the
+      observed gauge groups'. The independent Klein-bottle 'smallest
+      coprime pair' route cleanly forces 2; 'q₃=3 specifically' is softer.
+    used_by: "none load-bearing; collatz/ invokes it only as a named coincidence"
+  gamma0_6_forcing:
+    claim: "framework forces level Γ₀(6) 'from physics', independent of target"
+    verdict: >
+      NOT substantiated as forced. Per psl2z_subgroup_phase_a_results.md,
+      Γ₀(6) is IDENTIFIED as the smallest Hecke subgroup that splits three
+      empirical w₊ candidates {13/14,12/13,14/15} AND whose level matches
+      INTERACT=q₂q₃=6. Substrate-preservation closes only in 'recognize
+      mode' (vocabulary translation of existing Z₂×Z₃ structure); Phase B
+      'unscoped', Phase C (representative selection) OPEN.
+    consequence: >
+      Any Ramanujan port must NOT claim 'framework forces Γ₀(6) from
+      physics'; downgrade to 'identifies a level that is a real
+      Ramanujan–Sato level'. Reason the Ramanujan thread is not yet ported.
+
+# The studies. Each is Class 2; each ships a pure-Python check that prints
+# every load-bearing number in its note. The two founding studies are one
+# picture: the locked {2,3} resonances (mode_locking) and the unlocked
+# complement between them (collatz).
+studies:
+  standing_waves:
+    object: "the bare ×3/÷2 ratio (circle of fifths) as a mode-locking staircase"
+    class: 2
+    register: "framework-native side — the {2,3} ARENA, demonstrated by running the dynamics"
+    reading: >
+      The framework's standing waves (mode-locked, periodic resonances) are
+      the {2,3}-dominated locks of the ×3/÷2 staircase. This is the half of
+      the {2,3}↔Collatz question that DOES hold: run the dynamics, get
+      Arnold tongues with {2,3} widest.
+    shown:
+      rotation: "stack ×3/2, fold ÷2 = rotation by ρ = log₂(3/2) = 0.5849625"
+      convergents: "CF convergents = equal temperaments 1/2,3/5,7/12,24/41,31/53; all on Stern–Brocot descent to ρ"
+      tongue_widths_K1: "by denominator: 1→0.159, 2(1/2)→0.074, 3(1/3,2/3)→0.031, 4→0.016 (small {2,3} widest)"
+      standing_waves: "q₂ lock = period-2 orbit; q₃ lock = period-3 orbit; staircase gap = aperiodic"
+    does_not_show:
+      - "reads harmonics' OWN derived staircase (minimum_alphabet.md) in the ×3/÷2 vocabulary; adds no new derivation/constant"
+      - "does NOT import the physical-forcing claim for (q₂,q₃)=(2,3); {2,3} enter as the bare ratio (see audit_findings)"
+    note: "mode_locking/standing_waves.md"
+    check: "mode_locking/standing_waves.py"
+    status: "complete"
+
+  collatz_minimal_chaos:
+    object: "Collatz map 3n+1 (and its rational extension on the Stern–Brocot tree)"
+    class: 2
+    register: "the UNLOCKED complement of the standing_waves arena — admits no standing wave"
+    reading: >
+      Collatz lives in the GAPS of the {2,3} mode-locking staircase: the
+      +1 pushes orbits off the plateaus, the parity dynamics become a full
+      2-shift, and no orbit locks onto a standing wave. That is why it is
+      hard. The {2,3}↔Collatz shared place is the mode-locking arena
+      (standing_waves), NOT the q₃=q₂²−1 coincidence (named, not leaned on).
+    mechanism:
+      contraction_boundary: "q·n+1 contracts iff q < q₂² = 4; q=3 the unique odd multiplier that contracts"
+      rate: "per-odd-cycle multiplier q₃/q₂² = 3/4 (E[v₂(3n+1)] = q₂ = 2)"
+      plus_one: "the '+1' is the mediant of 3p/q with the tree root 1/1; restores ÷q₂; drives orbits OFF the plateaus"
+      no_standing_wave: "shortcut-map first-k parities = bijection onto {0,1}^k (Terras); full 2-shift, entropy log2"
+      integers_are_boundary: "q=1 = rightmost Stern–Brocot branch = minimal gcd cancellation = hard case"
+      unique_cycle: "only integer cycle is {1,2}; q₃^a = q₂^b has no positive solution"
+    measured:
+      E_v2_3n1: 1.9976          # predicted q₂ = 2
+      per_odd_cycle_multiplier: 0.747   # predicted q₃/q₂² = 0.75
+      int_3n1_reach_one: "1998 / 1998 over n=2..1999"
+      int_5n1_diverge: "1742 / 1998 (boundary q=5 > 4 predicts non-convergence)"
+      parity_bijection: "verified k=1..11: first-k parities hit all 2^k words exactly once"
+      rational_convergence: "979 reduced fractions p,q≤40 → {1/1,2/1}, max 74 steps"
+    does_not_show:
+      - "does NOT prove Collatz — every-orbit vs almost-every (Tao 2019) is the open conjecture"
+      - "does NOT derive q₂, q₃ — imported from harmonics"
+      - "q₃=q₂²−1 is a named {2,3}-arithmetic coincidence ('3 just under 4'), NOT the load-bearing link"
+      - "rate 3/4 is the E[v₂]=2 heuristic, exact only in expectation; the BOUNDARY q<q₂² and the bijection are exact"
+    note: "collatz/minimal_chaos.md"
+    check: "collatz/minimal_chaos.py"
+    status: "complete"
+
+  no_dissipation:
+    object: "Collatz provability — the dissipation obstruction; embeddings in C, H"
+    class: 2
+    register: "negative result — which proof strategies are ruled out, and why"
+    reading: >
+      Collatz has no FORCED dissipation (Lyapunov function), so counting /
+      measure / geometric arguments cannot prove it. R gives only statistical,
+      non-monotone drift; Z_2 (the natural completion) is measure-preserving so
+      a.e. orbit recurs and Z is measure-zero (convergence invisible to Haar);
+      C/H are the wrong (Archimedean) completion — q2=2 ramifies. A forcing
+      quantity, if any, must be arithmetic/adelic, not geometric.
+    shown:
+      no_R_lyapunov: "altitude non-monotone (27→4616 ×171, 77031→1.1e7 ×142); 3/4 drift is statistical not forced"
+      Z2_measure_preserving: "parity bijection on Z/2^k -> T measure-preserving (Lagarias); Poincare recurrence -> a.e. orbit recurs"
+      Z_measure_zero: "integers dense (every residue mod 2^k) but countable -> measure zero; convergence is a measure-zero event"
+      C_no_conservation: "entire extension agrees on Z but diverges off-axis (2,78,2.7e63,overflow); transcendental, no conserved current"
+      ramification: "q2=2 ramifies: -i(1+i)^2 = 2 in Z[i]; the non-Archimedean fact C/H cannot see"
+      signals: "cycle RULED OUT (3^a≠2^b); divergence OPEN and measure-zero -> must be attacked arithmetically"
+    answers_user_question:
+      higher_dim_topological_conservation: "NO — geometric/topological invariants are the wrong type/completion; the conserved Haar measure is preserved-not-monotone and blind to Z"
+      complex_quaternion_preserve_symmetry: "NO — C/H thicken the Archimedean side (statistical dissipation) and drop the 2-adic side (the real structure)"
+      conserve_vs_discard: "the 2-adic coordinate is conserved but is an ISOMETRY (wrong type); a monotone height must be adelic (R x Q_2)"
+    does_not_show:
+      - "does NOT prove or disprove Collatz — it rules out classes of proof STRATEGY, with reasons"
+      - "does NOT prove no conservation law of any kind exists — only the geometric/measure ones are wrong-type; adelic/arithmetic left open"
+      - "2-adic conjugacy (Lagarias) and C extension (Letherman-Schleicher-Wood) are classical; the synthesis is the Class 2 content"
+    note: "collatz/no_dissipation.md"
+    check: "collatz/no_dissipation.py"
+    status: "complete"
+
+  adelic_height:
+    object: "Collatz — is there a provably monotone adelic height h(n)?"
+    class: 2
+    register: "the frontier no_dissipation pointed to — answered honestly (negative/structural)"
+    reading: >
+      A monotone height exists IFF Collatz is true (the stopping time sigma,
+      circular). A non-circular closed-form one is squeezed between the two
+      completions: finite 2-adic data is blind to unbounded ascending runs, the
+      full 2-adic coordinate is conserved (can't descend). Any working h must be
+      Archimedean-non-monotone AND 2-adically discontinuous — definable on
+      neither completion, living only on the measure-zero integers.
+    shown:
+      circular_existence: "sigma(T(n))=sigma(n)-1 (verified n=2..1999): a perfect but non-constructive Lyapunov"
+      ascending_runs: "n=2^k-1 gives k consecutive odd steps; v2=0 throughout while log2|n| climbs -> finite 2-adic data blind"
+      conserved_coordinate: "the full parity vector is measure-preserving; continuous h:Z_2->R strictly decreasing is impossible (recurrence)"
+      naive_fails: "h=log2(n)-a*v2(n) increases for EVERY a (even steps need a<1; odd ascending steps rise log2(3/2) for all a)"
+      v3_also_blind: "[3b] v3(n)=0 along the climb too; best (a,b) keeps b=0 -> ALL local p-adic valuations are blind (climb = trajectory quantity)"
+      window_squeeze: "finite window fails runs longer than it; unbounded window = stopping time = circular"
+    does_not_show:
+      - "does NOT prove Collatz unprovable or that no closed-form h exists — only that the natural adelic constructions fail, and characterizes what any working one must be"
+      - "the 'neither completion / Z-only' characterization IS the analytic shape of the conjecture; that is the honest endpoint"
+      - "stopping-time and recurrence facts are classical; the squeeze and verdict are the Class 2 content"
+    answers_user_question: "yes iff Collatz true (circular); no constructive one known; squeeze is precise; all LOCAL arithmetic (any v_p) is blind"
+    note: "collatz/adelic_height.md"
+    check: "collatz/adelic_height.py"
+    status: "complete"
+
+  farey_equidistribution:
+    object: "the Farey/Stern–Brocot tree; the Riemann Hypothesis via Franel–Landau"
+    class: 2
+    register: "capstone — positions all three objects on the locked↔unlocked axis"
+    reading: >
+      The Farey tree has two faces: finite-depth COUNTING (locked; the
+      framework's |F₆|=13, Ω_Λ=13/19 live here) and asymptotic
+      EQUIDISTRIBUTION (unlocked; RH lives here via Franel–Landau). The
+      framework reads the locked count, not the unlocked limit. RH keeps
+      company with Collatz on the unlocked side.
+    shown:
+      franel_landau: "RH ⇔ Σ|δ_ν| = O(n^{1/2+ε}) [Landau] and Σδ_ν² = O(n^{-1+ε}) [Franel]"
+      locked_is_finite_depth: "Ω_Λ=13/19 is a depth-6 census; |F_n|/|F_(n+1)| → 1, so it is depth-specific not asymptotic"
+      sums_consistent_with_RH: "S1/√n bounded (~0.18–0.27), S2·n bounded (~0.19–0.62) over n=8..512"
+    does_not_show:
+      - "does NOT test/support/weigh on RH — finite n is consistent with RH AND its negation; never a test"
+      - "does NOT claim the framework derives or bears on RH; shared TREE, not a shared theorem"
+      - "13/19 imported from harmonics; its physical status is audited there, not asserted here"
+    note: "farey/equidistribution.md"
+    check: "farey/equidistribution.py"
+    status: "complete"
+
+  completion_sb_boundary:
+    object: "the completion of Q as a limiting process on the Stern–Brocot tree"
+    class: 2
+    register: "the closure ∂T where the locked (nodes) and unlocked (paths) faces meet"
+    reading: >
+      The framework's Open item (minimum_alphabet.md Part III: 'formalize the
+      completion as a limiting process on the SB tree') has a classical exact
+      answer: the SB-tree boundary IS the completion R≥0, continued fractions
+      are the path encoding. Four informal framework claims land on standard
+      facts. The framework adopts a known construction; it does not derive it.
+    shown:
+      resolution_floor: "tree-adjacent a/b,c/d unimodular (|bc−ad|=1) -> width 1/(bd) = the framework's 1/q² floor"
+      completion_is_limit: "L/R path run-lengths = CF coefficients; bracket endpoints = convergents; width 1/(q_n q_{n+1}) -> 0"
+      two_tails: "rationals have exactly 2 finite paths ([..,k]=[..,k-1,1]) = the tree's 0.999...=1; irrationals 1 infinite path"
+      phi_deepest: "φ's convergent denominators are Fibonacci (minimal growth); floor shrinks slowest -> φ worst-approximable = deepest point"
+      faces_meet: "ρ=log2(3/2) is an infinite path bracketed by nodes 7/12,24/41; ∂T = finite nodes (locked) ∪ infinite paths (unlocked)"
+    closes:
+      - "minimum_alphabet.md Part III 'completion as limiting process on SB tree' (mathematical half)"
+      - "farey/equidistribution.md Open #1 (the completion as the bridge between the two faces)"
+    does_not_show:
+      - "construction is CLASSICAL (continued fractions / SB tree / Minkowski ?); the Class 2 content is the IDENTIFICATION, not a derivation"
+      - "the PHYSICAL-observable half of the Open item (what measurement cuts resolved-vs-gap) stays open — that is physics, not the tree"
+      - "no constant, no scorecard claim; 1/φ, 13/19 imported, status audited in harmonics"
+    note: "completion/sb_boundary.md"
+    check: "completion/sb_boundary.py"
+    status: "complete"
+
+  two_completions:
+    object: "Collatz's lossy mod-2 operator; the 2-adic completion Z_2 of Z"
+    class: 2
+    register: "the OTHER completion — sibling of sb_boundary (R); where the loss vanishes"
+    reading: >
+      The mod-2 read is lossy on Z (projection Z->Z/2) but lossless in
+      aggregate: the parity stream is a 2-adic coordinate. By Ostrowski the
+      only completions of Q are R and the p-adics; Collatz's q₂=2 reduction
+      lives in Z_2, where the parity-vector map is a measure-preserving
+      isometry (Lagarias) and the loss vanishes. The conjecture is the seam
+      between the two completions (inside Z vs outside Z_2; every vs a.e.).
+    shown:
+      lossless_aggregate: "parity vector bijection on Z/2^k (k<=12) WITH exact inverse -> the 2-adic coordinate"
+      loss_direction: "bit-length drift: even Δlog2=-1, odd Δlog2=log2(3/2); net negative = the 3/4 contraction in bits"
+      ostrowski: "completions of Q = R (Archimedean, sb_boundary) and Q_p (p-adic); Collatz's home is Z_2 (p=q₂=2)"
+      isometry: "Lagarias: parity-vector map Q_∞:Z_2->Z_2 is a measure-preserving homeomorphism; loss vanishes on Z_2"
+      seam: "conjecture = gap between clean Z_2/outside (a.e., Tao) and Z/inside (every integer)"
+    does_not_show:
+      - "does NOT prove Collatz — Z_2 is clean BECAUSE it is an a.e./measure statement; the gap to every integer is the conjecture"
+      - "the 2-adic conjugacy is classical (Terras 1976, Lagarias 1985); the Class 2 content is the identification, not a theorem"
+      - "no constant; q₂,q₃ imported from harmonics"
+    closes_loop_with: "completion/sb_boundary.md (R) — completion/ now holds BOTH completions of Q"
+    note: "completion/two_completions.md"
+    check: "completion/two_completions.py"
+    status: "complete"
+
+  golden_root:
+    object: "the framework from one root — the most singular representation"
+    class: 2
+    register: "synthesis — the single object from which all four studies unfold"
+    reading: >
+      All four studies are four readings of ONE tree (one seed (0/1,1/0), one
+      operation: the mediant): count the nodes (farey), node widths
+      (mode_locking), a map on nodes (collatz), the boundary (completion). And
+      a SINGLE object — the golden matrix M=[[1,1],[1,0]] — carries all four
+      primitives at once; its eigenvalue φ is the deepest point of the tree it
+      generates. Generation and completion are one self-referential object.
+    shown:
+      one_tree: "seed (0/1,1/0), mediant -> root 1/1 -> all of Q (nodes) and R (boundary)"
+      integers: "M^n entries are Fibonacci numbers"
+      parabola: "char poly of M is x²−x−1; roots φ, ψ"
+      fixed_point: "M^n v → φ-direction; φ = 1 + 1/φ"
+      mediant: "M's iteration is the φ-path; convergents = Fibonacci ratios = M^n columns"
+      cassini: "det(M^n)=(−1)^n = F_(n+1)F_(n−1)−F_n²; |φψ|=|det M|=1 (Born/uncertainty)"
+      singularity: "M generates the tree AND its eigenvalue φ is the boundary's deepest point (completion C4)"
+    does_not_show:
+      - "does NOT reduce 4 primitives to 1 — irreducibility (minimum_alphabet.md Part II) stands; this is co-location, not a smaller alphabet"
+      - "synthesis of existing framework content (x²−x−1/φ,ψ/Cassini cluster), not a new derivation"
+      - "no constant, no scorecard claim; physical readings (Born, uncertainty) imported, status audited in harmonics"
+    note: "root/golden_root.md"
+    check: "root/golden_root.py"
+    status: "complete"
+
+# Synthesis documents — roadmaps over the studies, making NO new claims; each
+# leaf cites a study+check or a standard fact. Not studies (no own check).
+synthesis:
+  collatz_boundaries:
+    doc: "collatz/boundaries.md"
+    role: "outline arriving at the boundaries of the Collatz conjecture from the repo findings"
+    arc: >
+      cycle case CLOSED by uniqueness (3^a≠2^b); divergence BLOCKED for
+      measure/ergodic (measure-zero), geometry/topology (wrong completion),
+      closed-form/local height (the squeeze), and VACUOUS for self-consistency
+      (product formula is an identity); divergence in toto OPEN — an arithmetic
+      statement about a measure-zero set.
+    sources: ["minimal_chaos", "two_completions", "no_dissipation", "adelic_height"]
+    status: "synthesis (no new claims)"
+
+# Staged but not yet authored in this repo (see harmonics#210). Each would
+# enter as Class 2 and must carry its own guard rails.
+planned:
+  ramanujan_pi:
+    object: "Ramanujan 1914 series for 1/π"
+    reading: "home shared (level Γ₀(6)), address disjoint (no CM discriminant); structure-fixer, not moduli-fixer"
+    blocked_on: >
+      audit_findings.gamma0_6_forcing — the harmonics-branch note claims
+      'framework independently forces Γ₀(6) from physics', which the
+      substrate does not support (Γ₀(6) is identified by w₊-candidate
+      splitting + INTERACT-match, recognize-mode). Port only after Layer B
+      is downgraded accordingly; do not import the forcing claim.
+    status: "exists in harmonics branch; NOT ported (blocked on downgrade)"
+  farey_riemann:
+    object: "Farey / Stern–Brocot tree under Ramanujan / Collatz / Riemann"
+    reading: "RH leg anchored on Franel–Landau (1924): RH ⟺ Farey equidistribution"
+    status: "not yet authored"
