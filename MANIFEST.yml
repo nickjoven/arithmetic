@@ -254,6 +254,29 @@ studies:
     check: "completion/two_completions.py"
     status: "complete"
 
+  adic_asymmetry:
+    object: "which N-adic is singular for Collatz; the +1 as symmetry-breaker; the real straddles"
+    class: 2
+    register: "sharpens two_completions — explains WHY Z_2 and not Z_3"
+    reading: >
+      The map mixes /2 and *3, but the +1 makes 3n+1 simultaneously EVEN and
+      COPRIME TO 3: it enriches the 2-adic (Lagarias conjugacy) and trivializes
+      the 3-adic (v3 collapses), in one stroke. So ONE N-adic (the 2-adic) is
+      singular, BECAUSE the +1 breaks the 2<->3 symmetry. The genuine symmetric
+      pairs are shifted off the completions.
+    shown:
+      plus_one_breaks_symmetry: "for odd n, v2(3n+1)>=1 AND v3(3n+1)=0 (3n+1 = 1 mod 3); strip the +1 and v3 accumulates (0,1,2,3,4,5)"
+      two_adic_singular: "v2 drives the orbit; v3 dies after the first odd step (consistent with adelic_height [3b])"
+      multiplier_straddle: "3 and 5 mirror about the neutral multiplier line q2^2=4 (3 contracts, 5 expands); the even line is unoccupied"
+      field_symmetry: "in Q(sqrt5): 2 = -3 mod 5, both inert; Farey counts 11=|F5|, 19=|F7| split -> opposite classes"
+    does_not_show:
+      - "does NOT prove anything about Collatz — explains which completion is singled out and why"
+      - "the +1 = mediant with the tree root (minimal_chaos M3): the seam-maker is the symmetry-breaker"
+      - "mod-5 splitting is standard; the Class 2 content is {2,3} vs {11,19} on opposite sides; no forcing claimed"
+    note: "completion/adic_asymmetry.md"
+    check: "completion/adic_asymmetry.py"
+    status: "complete"
+
   golden_root:
     object: "the framework from one root — the most singular representation"
     class: 2

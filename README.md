@@ -68,6 +68,7 @@ relationship.
 | [`farey/equidistribution.md`](farey/equidistribution.md) | the Farey tree / Riemann | **Unlocked (asymptotic).** The tree's two faces: finite-depth *counting* (`13/19`, locked) vs asymptotic *equidistribution* (RH via Franel–Landau, unlocked). The framework reads the count, not the limit. |
 | [`completion/sb_boundary.md`](completion/sb_boundary.md) | the completion of ℚ (ℝ) | **The closure where both faces meet.** The SB-tree boundary *is* the Archimedean completion (continued fractions as paths); resolves a framework Open item and pins its `1/q²` floor, `0.999…=1`, and `1/φ`-depth claims to exact facts. |
 | [`completion/two_completions.md`](completion/two_completions.md) | the 2-adic completion (ℤ₂) | **The other completion.** Collatz's lossy mod-2 is lossless in aggregate (a 2-adic coordinate); its natural home is `ℤ₂`, where the loss is a measure-preserving isometry. The conjecture is the seam *between* ℝ and `ℤ₂` — inside vs outside, made exact. |
+| [`completion/adic_asymmetry.md`](completion/adic_asymmetry.md) | which N-adic, and the symmetries | **Why `ℤ₂` and not `ℤ₃`.** The `+1` makes `3n+1` even *and* coprime to 3 at once — enriching the 2-adic, trivializing the 3-adic. One N-adic is singular because the `+1` breaks the `2↔3` symmetry. The real straddles: `3↔5` about the multiplier `q₂²=4`, and `2↔3` about `5` in φ's field. |
 | [`root/golden_root.md`](root/golden_root.md) | the framework, from one root | **The singular representation.** One tree, one seed, one operation — and one matrix `[[1,1],[1,0]]` carrying all four primitives, whose eigenvalue `φ` is its own tree's deepest point. Generation and completion in one self-referential object. |
 
 These are one picture along a single axis — **locked** (the `{2,3}`
@@ -86,6 +87,7 @@ python3 collatz/adelic_height.py
 python3 farey/equidistribution.py
 python3 completion/sb_boundary.py
 python3 completion/two_completions.py
+python3 completion/adic_asymmetry.py
 python3 root/golden_root.py
 ```
 
