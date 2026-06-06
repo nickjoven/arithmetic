@@ -350,6 +350,30 @@ studies:
     check: "farey/ford_apollonian.py"
     status: "complete"
 
+  depth_discrimination:
+    object: "Arnold-tongue widths of the sine circle map (rank-1)"
+    class: 2
+    register: "framework-internal demonstration — the discriminating test for ford_apollonian's canonical depth; rank-1 analogue of lunar-theory #20"
+    reading: >
+      Tests ford_apollonian's claim ('depth = curvature q², not the soft
+      tree-level count') on the framework's OWN rank-1 object, the circle map
+      standing_waves runs. Tongue width ~ (K/2)^q is governed by the
+      denominator q (curvature-depth); q and tree level correlate but differ,
+      so they can be separated. Runs the framework's own dynamics and a
+      WITHIN-FRAMEWORK shuffle null — NOT an external empirical test (those
+      stay in the sibling per the empirical gate).
+    shown:
+      d1_organizer: "Spearman(-log width, q)=+0.9749 > tree level +0.8937 > CF-length +0.2920 (K=0.9, 17 tongues)"
+      d2_discriminator: "within fixed tree level, -log width still rises with q: mean Spearman +0.9330, shuffle null p=0.0107"
+      verdict: "depth = q (curvature), not the count, on rank-1 tongues — suggestive (only 2 usable levels at q<=7)"
+    does_not_show:
+      - "framework-internal (own dynamics + within-framework null), NOT an external empirical test"
+      - "does NOT validate lunar-theory #20: that census is rank-2 (F₂ words, not PSL(2,ℤ)), so q²-depth is not canonical there; #20 stays a regularity"
+      - "small basis (2 usable levels at q<=7); p=0.0107 is suggestive, not decisive; q and level are themselves correlated"
+    note: "mode_locking/depth_discrimination.md"
+    check: "mode_locking/depth_discrimination.py"
+    status: "complete"
+
 # Synthesis documents — roadmaps over the studies, making NO new claims; each
 # leaf cites a study+check or a standard fact. Not studies (no own check).
 synthesis:
