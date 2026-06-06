@@ -5,7 +5,7 @@
 # federated sibling of nickjoven/harmonics; the substrate of record for all
 # framework concepts is harmonics, not this file. See README.md and CLAUDE.md.
 #
-# Updated: 2026-06-03
+# Updated: 2026-06-06
 
 repo:
   name: arithmetic
@@ -14,6 +14,21 @@ repo:
     sibling_of: "nickjoven/harmonics"
     substrate_of_record: "harmonics (.ket content-addressed store)"
     staged_in: "harmonics#210"
+    # The substrate is now PINNED, not just named. harmonics is vendored as a
+    # git submodule at ./harmonics, fixed to an exact commit. This inherits
+    # the substrate's cryptographic diligence: every harmonics:<path> claim in
+    # this repo was verified against THIS commit, so "freshness" (CLAUDE.md)
+    # is checkable, not a memory. Path mapping: harmonics:<file>.md resolves to
+    # ./harmonics/sync_cost/derivations/<file>.md (the derivation spine).
+    pinned_substrate:
+      submodule_path: "harmonics"
+      commit: "87095ca0130f1b2764418d99a76b5f77ae79e068"
+      pinned_on: "2026-06-06"
+      note: >
+        Pin reachable in origin/main history (origin was at 59db470 when
+        pinned). To advance the pin: cd harmonics && git checkout <newer>,
+        then re-verify every audit_findings entry below before committing the
+        bumped gitlink — a moved substrate can silently stale a Class-2 claim.
   invariant: >
     Everything here is Class 2 — a noted structural correspondence with no
     claim of derivation, no prediction, and no new framework constant. A
