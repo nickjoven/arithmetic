@@ -296,6 +296,35 @@ studies:
     check: "root/golden_root.py"
     status: "complete"
 
+  three_body_no_closed_form:
+    object: "the three-body problem (n>=3 coupled oscillators): no exact algebraic closed form"
+    class: 2
+    register: "the UNLOCKED face of RANK — the third unlocked problem (dimensional), beside Collatz (dynamical) and Riemann (asymptotic)"
+    reading: >
+      The framework's arena is rank 1: two oscillators reduce to ONE
+      rotation number (the standing_waves circle map), the unique case where
+      a single rotation number is a complete invariant (Denjoy) and the
+      Farey/Stern-Brocot census closes. Three bodies are rank 2 — a rotation
+      vector on a torus — where resonances k.w=0 are dense, zones OVERLAP,
+      and small divisors 1/(k.w) diverge the integral series. No exact
+      algebraic integral survives (Poincare 1892 / Bruns 1887). The last
+      torus to break is the golden mean = the deepest Stern-Brocot node
+      (root/golden_root.md): worst-approximable = deepest node = boundary.
+    shown:
+      rank: "n bodies -> n-1 frequency ratios; n=2->1, n=3->2, n=4->3; rank 1 unique complete invariant"
+      rank1_floor: "golden KAM floor liminf q*||q*rho|| = 1/sqrt5 = 0.4472136 (bounded away from 0)"
+      rank2_overlap: "standard-map overlap K=pi^2/4=2.4674 (crude); last torus K_c=0.9716354 (Greene 1979), crude over by 2.54x"
+      golden_boundary: "liminf q*||q*x||: golden 1/sqrt5=0.4472136 (Hurwitz max) > sqrt2 1/(2sqrt2)=0.3535534 > sqrt3 0.2886751 > sqrt5 0.2236068"
+      boundary: "worst-approximable = deepest SB point (phi=1.6180340) = last standing wave = rank analogue of Collatz's q<q2^2"
+    does_not_show:
+      - "does NOT prove non-integrability — Poincare/Bruns cited, not reproduced; framework reads which side of its boundary the object sits on"
+      - "makes NO Earth-Moon prediction; Earth-Moon noted only as a hierarchical subsystem NEAR the rank-1 manifold (why lunar theory is perturbative), qualitative not numeric"
+      - "the rank = n-1 counting is the WEAK (generic) layer; only the rank-1=arena coincidence and the phi-boundary are framework-native"
+      - "standard map is a MODEL of the locked-zone geometry, not the gravitational Hamiltonian; K_c is that model's last-torus constant"
+    note: "three_body/no_closed_form.md"
+    check: "three_body/no_closed_form.py"
+    status: "complete"
+
 # Synthesis documents — roadmaps over the studies, making NO new claims; each
 # leaf cites a study+check or a standard fact. Not studies (no own check).
 synthesis:
