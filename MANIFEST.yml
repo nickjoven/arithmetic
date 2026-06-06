@@ -325,6 +325,31 @@ studies:
     check: "three_body/no_closed_form.py"
     status: "complete"
 
+  ford_apollonian:
+    object: "the Farey/Stern–Brocot tree's Ford-circle geometry; canonical depth"
+    class: 2
+    register: "the rigidity behind 'depth' — one floor (|bc−ad|=1) in three faces; sharpens the ambiguous Stern–Brocot depth"
+    reading: >
+      Stern–Brocot depth is ambiguous as a count, but the tree carries a
+      rigid geometry that fixes it. One fact — the unit determinant
+      |bc−ad|=1 — underlies three things the repo treats separately:
+      PSL(2,ℤ) unimodularity (golden_root det M=±1), the 1/q² resolution
+      floor (sb_boundary), and Ford-circle tangency / integer Apollonian
+      curvature (new here). The canonical depth of a node is its curvature
+      q², not its tree level; φ is the deepest (slowest curvature growth).
+    shown:
+      tangency_is_unimodular: "Ford tangency gap d²−(r+r')² = (D²−1)/(q²q'²), zero iff |D|=1; 1/4 vs 2/3 gap 0.1667"
+      mediant_is_descartes: "mediant Ford curvature = Descartes inscription = 2(q+q')² (integer): 8,18,50,98"
+      canonical_depth: "same tree level → curvature range diverges (L3 [32,50], L4 [50,128], L5 [72,338]); depth = q² not level"
+      golden_deepest: "golden path curvature grows by φ²=2.61803 (slowest, CF all-1s) = worst-approximable (Hurwitz 1/√5=0.4472136)"
+    does_not_show:
+      - "does NOT claim the framework derives/produces Ford circles or Apollonian gaskets (classical: Ford 1938, Descartes); the Class-2 content is the correspondence with the repo's OWN unimodular + 1/q² floors"
+      - "'canonical depth = q²' is a reading that resolves an ambiguity, not a forced framework quantity (it is Möbius/Descartes-invariant where tree-level is not)"
+      - "the Ford→Apollonian = rank-1→rank-2 lift is SUGGESTED, not shown"
+    note: "farey/ford_apollonian.md"
+    check: "farey/ford_apollonian.py"
+    status: "complete"
+
 # Synthesis documents — roadmaps over the studies, making NO new claims; each
 # leaf cites a study+check or a standard fact. Not studies (no own check).
 synthesis:
