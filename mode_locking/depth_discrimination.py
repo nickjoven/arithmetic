@@ -210,5 +210,6 @@ else:
 print()
 print("    SCOPE: rank-1, framework-internal (own dynamics + within-framework")
 print("    null). The rank-2 Li & Liao catalog (lunar-theory #20) has free_group")
-print("    words in F2, not PSL(2,Z), so q^2-depth is not canonical there; #20")
-print("    stays a regularity until a rank-2 canonical depth is found.")
+print("    words in F2, not PSL(2,Z), so q^2-depth is not canonical there; the")
+print("    rank-2 canonical depth is the hyperbolic length on X(2) (see")
+print("    ../farey/rank2_depth.md), and #20 is upgraded on that basis.")

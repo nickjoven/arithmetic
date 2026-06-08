@@ -68,11 +68,14 @@ either count (D1), and beats a within-level shuffle (D2, `p = 0.011`).
   correlated, so D2 removes only part of the confound.
 - It is **framework-internal** (own dynamics, within-framework null), not an
   external empirical test.
-- It does **not** validate `lunar-theory #20`. That census is **rank-2**: its
-  `free_group` words live in `F₂`, not PSL(2,ℤ), so `q²`-depth is *not*
-  canonical there. #20 stays a **regularity** until a rank-2 canonical depth
-  is found. This note resolves the *principle* (depth = curvature) on the
-  object where it is canonical; the rank-2 transfer is open.
+- It does **not**, by itself, validate `lunar-theory #20`. That census is
+  **rank-2**: its `free_group` words live in `F₂`, not PSL(2,ℤ), so `q²`-depth
+  is *not* the canonical depth there. The rank-2 canonical depth was
+  subsequently identified — the **hyperbolic length** on `X(2)`
+  (`../farey/rank2_depth.md`), `F₂ = Γ(2) = π₁(X(2))` — and #20 is upgraded on
+  that basis in the sibling (`three_body_hyperbolic.py`). This note resolves the
+  *principle* (depth = curvature) on the rank-1 object where it is canonical;
+  `rank2_depth` carries the principle to rank 2.
 
 ---
 
@@ -80,10 +83,11 @@ either count (D1), and beats a within-level shuffle (D2, `p = 0.011`).
 
 1. **More levels.** Pushing to `q ≤ 10` (finer Ω grid) would add usable
    levels and tighten D2 beyond "suggestive."
-2. **The rank-2 canonical depth.** What plays the role of `q²` for `F₂` braid
-   words? Until that exists, #20 cannot be discriminated. The
-   `ford_apollonian` Ford→Apollonian (rank-1→rank-2) lift is the natural
-   place to look.
+2. **The rank-2 canonical depth — resolved.** What plays the role of `q²` for
+   `F₂` braid words? The hyperbolic length on `X(2)` (`../farey/rank2_depth.md`),
+   reached via exactly the `ford_apollonian` Ford→Apollonian (rank-1→rank-2)
+   lift this pointed at. What remains open is the *physical*-metric version: the
+   `X(2)` length is a proxy for the dynamical (Jacobi–Maupertuis) length.
 
 ---
 
@@ -100,6 +104,6 @@ CF-length) and D2 (within-level Spearman vs a 20 000-draw shuffle null).
   canonical-depth claim this tests), `standing_waves.md` (the same circle-map
   dynamics), `../three_body/no_closed_form.md` (rank-1 vs rank-2).
 - Sibling: `lunar-theory` `#20` (the rank-2 census this is the rank-1 analogue
-  of; held as a regularity).
+  of; upgraded via the canonical depth in `../farey/rank2_depth.md`).
 - External: the sine circle map / Arnold tongues (Arnold 1965; widths
   `(K/2)^q`).
