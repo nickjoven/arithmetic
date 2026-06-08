@@ -5,7 +5,7 @@
 # federated sibling of nickjoven/harmonics; the substrate of record for all
 # framework concepts is harmonics, not this file. See README.md and CLAUDE.md.
 #
-# Updated: 2026-06-03
+# Updated: 2026-06-06
 
 repo:
   name: arithmetic
@@ -14,6 +14,21 @@ repo:
     sibling_of: "nickjoven/harmonics"
     substrate_of_record: "harmonics (.ket content-addressed store)"
     staged_in: "harmonics#210"
+    # The substrate is now PINNED, not just named. harmonics is vendored as a
+    # git submodule at ./harmonics, fixed to an exact commit. This inherits
+    # the substrate's cryptographic diligence: every harmonics:<path> claim in
+    # this repo was verified against THIS commit, so "freshness" (CLAUDE.md)
+    # is checkable, not a memory. Path mapping: harmonics:<file>.md resolves to
+    # ./harmonics/sync_cost/derivations/<file>.md (the derivation spine).
+    pinned_substrate:
+      submodule_path: "harmonics"
+      commit: "87095ca0130f1b2764418d99a76b5f77ae79e068"
+      pinned_on: "2026-06-06"
+      note: >
+        Pin reachable in origin/main history (origin was at 59db470 when
+        pinned). To advance the pin: cd harmonics && git checkout <newer>,
+        then re-verify every audit_findings entry below before committing the
+        bumped gitlink — a moved substrate can silently stale a Class-2 claim.
   invariant: >
     Everything here is Class 2 — a noted structural correspondence with no
     claim of derivation, no prediction, and no new framework constant. A
@@ -279,6 +294,109 @@ studies:
       - "no constant, no scorecard claim; physical readings (Born, uncertainty) imported, status audited in harmonics"
     note: "root/golden_root.md"
     check: "root/golden_root.py"
+    status: "complete"
+
+  three_body_no_closed_form:
+    object: "the three-body problem (n>=3 coupled oscillators): no exact algebraic closed form"
+    class: 2
+    register: "the UNLOCKED face of RANK — the third unlocked problem (dimensional), beside Collatz (dynamical) and Riemann (asymptotic)"
+    reading: >
+      The framework's arena is rank 1: two oscillators reduce to ONE
+      rotation number (the standing_waves circle map), the unique case where
+      a single rotation number is a complete invariant (Denjoy) and the
+      Farey/Stern-Brocot census closes. Three bodies are rank 2 — a rotation
+      vector on a torus — where resonances k.w=0 are dense, zones OVERLAP,
+      and small divisors 1/(k.w) diverge the integral series. No exact
+      algebraic integral survives (Poincare 1892 / Bruns 1887). The last
+      torus to break is the golden mean = the deepest Stern-Brocot node
+      (root/golden_root.md): worst-approximable = deepest node = boundary.
+    shown:
+      rank: "n bodies -> n-1 frequency ratios; n=2->1, n=3->2, n=4->3; rank 1 unique complete invariant"
+      rank1_floor: "golden KAM floor liminf q*||q*rho|| = 1/sqrt5 = 0.4472136 (bounded away from 0)"
+      rank2_overlap: "standard-map overlap K=pi^2/4=2.4674 (crude); last torus K_c=0.9716354 (Greene 1979), crude over by 2.54x"
+      golden_boundary: "liminf q*||q*x||: golden 1/sqrt5=0.4472136 (Hurwitz max) > sqrt2 1/(2sqrt2)=0.3535534 > sqrt3 0.2886751 > sqrt5 0.2236068"
+      boundary: "worst-approximable = deepest SB point (phi=1.6180340) = last standing wave = rank analogue of Collatz's q<q2^2"
+    does_not_show:
+      - "does NOT prove non-integrability — Poincare/Bruns cited, not reproduced; framework reads which side of its boundary the object sits on"
+      - "makes NO Earth-Moon prediction; Earth-Moon noted only as a hierarchical subsystem NEAR the rank-1 manifold (why lunar theory is perturbative), qualitative not numeric"
+      - "the rank = n-1 counting is the WEAK (generic) layer; only the rank-1=arena coincidence and the phi-boundary are framework-native"
+      - "standard map is a MODEL of the locked-zone geometry, not the gravitational Hamiltonian; K_c is that model's last-torus constant"
+    note: "three_body/no_closed_form.md"
+    check: "three_body/no_closed_form.py"
+    status: "complete"
+
+  ford_apollonian:
+    object: "the Farey/Stern–Brocot tree's Ford-circle geometry; canonical depth"
+    class: 2
+    register: "the rigidity behind 'depth' — one floor (|bc−ad|=1) in three faces; sharpens the ambiguous Stern–Brocot depth"
+    reading: >
+      Stern–Brocot depth is ambiguous as a count, but the tree carries a
+      rigid geometry that fixes it. One fact — the unit determinant
+      |bc−ad|=1 — underlies three things the repo treats separately:
+      PSL(2,ℤ) unimodularity (golden_root det M=±1), the 1/q² resolution
+      floor (sb_boundary), and Ford-circle tangency / integer Apollonian
+      curvature (new here). The canonical depth of a node is its curvature
+      q², not its tree level; φ is the deepest (slowest curvature growth).
+    shown:
+      tangency_is_unimodular: "Ford tangency gap d²−(r+r')² = (D²−1)/(q²q'²), zero iff |D|=1; 1/4 vs 2/3 gap 0.1667"
+      mediant_is_descartes: "mediant Ford curvature = Descartes inscription = 2(q+q')² (integer): 8,18,50,98"
+      canonical_depth: "same tree level → curvature range diverges (L3 [32,50], L4 [50,128], L5 [72,338]); depth = q² not level"
+      golden_deepest: "golden path curvature grows by φ²=2.61803 (slowest, CF all-1s) = worst-approximable (Hurwitz 1/√5=0.4472136)"
+    does_not_show:
+      - "does NOT claim the framework derives/produces Ford circles or Apollonian gaskets (classical: Ford 1938, Descartes); the Class-2 content is the correspondence with the repo's OWN unimodular + 1/q² floors"
+      - "'canonical depth = q²' is a reading that resolves an ambiguity, not a forced framework quantity (it is Möbius/Descartes-invariant where tree-level is not)"
+      - "the Ford→Apollonian = rank-1→rank-2 lift is SUGGESTED, not shown"
+    note: "farey/ford_apollonian.md"
+    check: "farey/ford_apollonian.py"
+    status: "complete"
+
+  depth_discrimination:
+    object: "Arnold-tongue widths of the sine circle map (rank-1)"
+    class: 2
+    register: "framework-internal demonstration — the discriminating test for ford_apollonian's canonical depth; rank-1 analogue of lunar-theory #20"
+    reading: >
+      Tests ford_apollonian's claim ('depth = curvature q², not the soft
+      tree-level count') on the framework's OWN rank-1 object, the circle map
+      standing_waves runs. Tongue width ~ (K/2)^q is governed by the
+      denominator q (curvature-depth); q and tree level correlate but differ,
+      so they can be separated. Runs the framework's own dynamics and a
+      WITHIN-FRAMEWORK shuffle null — NOT an external empirical test (those
+      stay in the sibling per the empirical gate).
+    shown:
+      d1_organizer: "Spearman(-log width, q)=+0.9749 > tree level +0.8937 > CF-length +0.2920 (K=0.9, 17 tongues)"
+      d2_discriminator: "within fixed tree level, -log width still rises with q: mean Spearman +0.9330, shuffle null p=0.0107"
+      verdict: "depth = q (curvature), not the count, on rank-1 tongues — suggestive (only 2 usable levels at q<=7)"
+    does_not_show:
+      - "framework-internal (own dynamics + within-framework null), NOT an external empirical test"
+      - "does NOT validate lunar-theory #20: that census is rank-2 (F₂ words, not PSL(2,ℤ)), so q²-depth is not canonical there; #20 stays a regularity"
+      - "small basis (2 usable levels at q<=7); p=0.0107 is suggestive, not decisive; q and level are themselves correlated"
+    note: "mode_locking/depth_discrimination.md"
+    check: "mode_locking/depth_discrimination.py"
+    status: "complete"
+
+  rank2_depth:
+    object: "the rank-2 canonical depth; the q₂/F₂/noncommutativity decomposition"
+    class: 2
+    register: "closes (as a reading) ford_apollonian's rank-1→rank-2 open item — what replaces q² for the F₂ braid census"
+    reading: >
+      F₂ resists the q² depth because F₂ is the part of the modular group
+      left after removing the torsion q₂,q₃. PSL(2,ℤ)=ℤ/q₂∗ℤ/q₃; the
+      noncommutative core is F₂ with 1→F₂→PSL(2,ℤ)→ℤ/q₂×ℤ/q₃→1 (Z/6);
+      F₂=Γ(2)=π₁(X(2))=the 3-body shape sphere minus collisions. A free
+      group's only intrinsic length is the word metric (the soft count, =
+      #20's T*~L_f); the canonical depth is the HYPERBOLIC length on X(2),
+      2 arccosh(|tr|/2), which differs from word length.
+    shown:
+      psl_free_product: "order(S)=q2=2, order(ST)=q3=3 -> PSL(2,Z)=Z/2*Z/3 (torsion = forced primes)"
+      ses: "1->F2->PSL(2,Z)->Z/q2 x Z/q3->1 (Z/6); F2=Gamma(2), [PSL(2,Z):Gamma(2)]=|PSL(2,F2)|=6=q2q3"
+      shape_sphere: "chi(S^2-3 collisions)=-1 -> pi_1 free rank 2 = F2 = pi_1(X(2))"
+      depth_neq_word: "hyperbolic length: ab->3.52549, aB->0 (parabolic); same word length spans a range (L4 [3.5255,7.0510], L5 [3.5255,8.1203]); word length = soft, hyperbolic length = rigid"
+    does_not_show:
+      - "S1-S3 are theorems (verified); S4's identification of the FRAMEWORK depth with the X(2) hyperbolic length is a READING (the natural pullback), tested empirically in the sibling, not here"
+      - "the standard-Γ(2) hyperbolic length is a PROXY for the orbit's true (Jacobi-Maupertuis/shape-sphere) dynamical length; they need not coincide"
+      - "the 6=q2q3 here is [PSL(2,Z):Γ(2)], a theorem — NOT the unsubstantiated Γ₀(6) forcing (different subgroup)"
+    note: "farey/rank2_depth.md"
+    check: "farey/rank2_depth.py"
     status: "complete"
 
 # Synthesis documents — roadmaps over the studies, making NO new claims; each

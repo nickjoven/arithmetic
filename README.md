@@ -28,11 +28,13 @@ input that would dissolve the question. The studies share one axis —
 staircase whose standing waves are the `{2,3}` locks (`mode_locking/`);
 Collatz is what that same staircase looks like in its **unlocked
 complement** — the regime that admits no standing wave, which is *why* the
-conjecture is hard (`collatz/`); and the Riemann Hypothesis is the unlocked
+conjecture is hard (`collatz/`); the Riemann Hypothesis is the unlocked
 *asymptotic* face of the same tree — maximal equidistribution, via
-Franel–Landau (`farey/`). The framework supplies the locked arena and its
-resonances; each study locates an object inside it and leaves the open
-problem standing.
+Franel–Landau (`farey/`); and the three-body problem is the unlocked
+*dimensional* face — rank `≥ 2`, where one rotation number is no longer a
+complete invariant and no exact algebraic closed form exists (`three_body/`).
+The framework supplies the locked arena and its resonances; each study
+locates an object inside it and leaves the open problem standing.
 
 A claim only earns its `{2,3}` framing if **running the dynamics** produces
 the framework's structure (Arnold tongues, mode-locking, the Stern–Brocot
@@ -66,15 +68,19 @@ relationship.
 | [`collatz/no_dissipation.md`](collatz/no_dissipation.md) | Collatz, provability | **Why geometry can't prove it.** No forced dissipation: ℝ gives only statistical, non-monotone drift; `ℤ₂` is measure-preserving (integers are measure-zero); ℂ/ℍ are the wrong (Archimedean) completion. Cycles fall to arithmetic; divergence must too. |
 | [`collatz/adelic_height.md`](collatz/adelic_height.md) | Collatz, the frontier | **Is there a monotone adelic `h(n)`?** Yes iff Collatz is true (the stopping time) — but circular. No closed-form one is known, and the squeeze is precise: any `h` must be Archimedean-non-monotone *and* 2-adically discontinuous, living only on the measure-zero integers. All local `p`-adic data is blind. |
 | [`farey/equidistribution.md`](farey/equidistribution.md) | the Farey tree / Riemann | **Unlocked (asymptotic).** The tree's two faces: finite-depth *counting* (`13/19`, locked) vs asymptotic *equidistribution* (RH via Franel–Landau, unlocked). The framework reads the count, not the limit. |
+| [`three_body/no_closed_form.md`](three_body/no_closed_form.md) | the three-body problem | **Unlocked (dimensional).** Rank `n−1`: rank 1 (`n=2`) is the arena (one rotation number, census closes); rank `≥2` overlaps (`K_c=0.9716`), no exact algebraic integral (Poincaré/Bruns). The golden mean (`1/√5`, deepest SB node) is the last torus = the boundary. Non-integrability is a *theorem*, read not proved. |
 | [`completion/sb_boundary.md`](completion/sb_boundary.md) | the completion of ℚ (ℝ) | **The closure where both faces meet.** The SB-tree boundary *is* the Archimedean completion (continued fractions as paths); resolves a framework Open item and pins its `1/q²` floor, `0.999…=1`, and `1/φ`-depth claims to exact facts. |
+| [`farey/ford_apollonian.md`](farey/ford_apollonian.md) | Ford circles / Apollonian | **Depth made canonical.** One floor `\|bc−ad\|=1` in three faces: PSL(2,ℤ) `det` (algebraic) = `1/q²` floor (metric) = Ford tangency / integer Apollonian curvature `2q²` (geometric). Canonical depth = `q²` not tree-level; `φ` deepest (curvature growth `φ²=2.618`). |
+| [`farey/rank2_depth.md`](farey/rank2_depth.md) | PSL(2,ℤ), `F₂`, the 3-body shape sphere | **Rank-2 depth.** `F₂` resists `q²` because it's PSL(2,ℤ) minus the torsion: `PSL(2,ℤ)=ℤ/q₂∗ℤ/q₃`, `1→F₂→PSL(2,ℤ)→ℤ/q₂×ℤ/q₃→1`, `F₂=Γ(2)=π₁(X(2))=` shape sphere − collisions. Canonical depth = **hyperbolic length** `2·arccosh(\|tr\|/2)`, not word length (`ab→3.525`, `aB→0`). |
 | [`completion/two_completions.md`](completion/two_completions.md) | the 2-adic completion (ℤ₂) | **The other completion.** Collatz's lossy mod-2 is lossless in aggregate (a 2-adic coordinate); its natural home is `ℤ₂`, where the loss is a measure-preserving isometry. The conjecture is the seam *between* ℝ and `ℤ₂` — inside vs outside, made exact. |
 | [`root/golden_root.md`](root/golden_root.md) | the framework, from one root | **The singular representation.** One tree, one seed, one operation — and one matrix `[[1,1],[1,0]]` carrying all four primitives, whose eigenvalue `φ` is its own tree's deepest point. Generation and completion in one self-referential object. |
 
 These are one picture along a single axis — **locked** (the `{2,3}`
 resonances) vs **unlocked** (the gaps) — with the completion as the boundary
 `∂T` that holds both: rationals = finite nodes (locked centres), irrationals
-= infinite paths (unlocked gaps). Collatz and Riemann are the two unlocked
-problems; the framework owns the locked census. Each study is a markdown note
+= infinite paths (unlocked gaps). Collatz, Riemann, and the three-body
+problem are the three unlocked problems — dynamical, asymptotic, and
+dimensional; the framework owns the locked census. Each study is a markdown note
 plus a pure-Python check (`no numpy`, self-contained, deterministic) that
 prints every number the note cites.
 
