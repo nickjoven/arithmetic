@@ -116,7 +116,13 @@ on `X(2)` is a genuine, rigid depth on `F₂` distinct from word length.
 - The standard-`Γ(2)` hyperbolic length is a **proxy** for the orbit's true
   length in the dynamical (shape-sphere / Jacobi–Maupertuis) metric; they
   need not coincide. The combinatorial pullback is canonical *as a depth*,
-  not as the physical period.
+  not as the physical period. The sibling probed this directly
+  (`lunar-theory:three_body_dynamical_depth.py`): the two naive *physical*
+  candidates fail — the full-config abbreviated action is **virial-locked**
+  (`= 2·T*` identically) and the round shape-sphere arc length
+  *anti*-correlates with `T*` within fixed word length — while `ℓ` organizes
+  it. So `ℓ` (the canonical, geodesic, minimal-in-class length) is the
+  relevant depth; the proxy flag is **sharpened, not closed**.
 - The braid-generator ↔ parabolic-generator identification is a fixed choice;
   `|tr|` (hence `ℓ`) is conjugation-invariant, so `ℓ` is well-defined on
   conjugacy classes (free-homotopy classes), but the labeling convention is a
@@ -129,9 +135,14 @@ on `X(2)` is a genuine, rigid depth on `F₂` distinct from word length.
 1. **Does `ℓ` beat word length on the catalog?** The decisive test: compute
    `ℓ` for each Li & Liao word and re-run the `#20` discrimination
    (`T*` vs `ℓ` vs `L_f`). That is the sibling task this note sets up.
-2. **The dynamical vs modular metric.** Reconciling the standard `Γ(2)`
-   length with the Jacobi–Maupertuis length on the actual shape sphere would
-   upgrade `ℓ` from proxy to physical depth.
+2. **The dynamical vs modular metric — probed, one refinement left.** The
+   sibling integrated all 695 catalog orbits
+   (`lunar-theory:three_body_dynamical_depth.py`): the abbreviated action is
+   virial-locked to `T*` and the *round* shape-sphere arc length anti-organizes,
+   so neither is the physical reconciliation. The one untested candidate that
+   could still upgrade `ℓ` from proxy to physical depth is the
+   **Jacobi–Maupertuis-*conformal*** length on the shape sphere (the round
+   length weighted by `√(2(E−V))`), not the round length used so far.
 
 ---
 
